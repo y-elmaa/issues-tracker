@@ -11,7 +11,7 @@ export async function POST(request: NextRequest) {
   const validation = createIssueSchema.safeParse(body);
   if (!validation.success)
     return NextResponse.json(validation.error.errors, { status: 400 });
-  const newIssue =await prisma.issus.create({
+  const newIssue = await prisma.issus.create({
     data: {
       title: body.title,
       description: body.description,
