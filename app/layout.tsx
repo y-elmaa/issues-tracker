@@ -4,7 +4,7 @@ import "./globals.css";
 import "@radix-ui/themes/styles.css";
 
 import NavBar from "./NavBar";
-import { Theme } from "@radix-ui/themes";
+import { Theme, ThemePanel } from "@radix-ui/themes";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -31,9 +31,11 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <Theme>
+        <Theme accentColor="violet">
+        
           <NavBar />
           <main className="p-3">{children}</main>
+          
         </Theme>
       </body>
     </html>
