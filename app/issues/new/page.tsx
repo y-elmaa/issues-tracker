@@ -22,7 +22,17 @@ const NewIssuePage = () => {
     formState: { errors },
   } = useForm<IssueForm>({ resolver: zodResolver(createIssueSchema) });
   const [error, setError] = useState("");
-  const [isSubmiting , setSubmiting] = useState(false)
+  const [isSubmiting, setSubmiting] = useState(false);
+  const onSubmit = handleSubmit(async (data) => {
+    try {
+      setSubmiting(true);
+      await axios.post("/api/issues", data);
+      router.push("/issues");
+    } catch (err) {
+      setSubmiting(false);
+      setError("An unexpected error accurred");
+    }
+  });
   const router = useRouter();
   return (
     <div className="max-w-xl">
@@ -31,19 +41,7 @@ const NewIssuePage = () => {
           <Callout.Text>{error}</Callout.Text>
         </Callout.Root>
       )}
-      <form
-        className="space-y-3"
-        onSubmit={handleSubmit(async (data) => {
-          try {
-            setSubmiting(true)
-            await axios.post("/api/issues", data);
-            router.push("/issues");
-          } catch (err) {
-            setSubmiting(false)
-            setError("An unexpected error accurred");
-          }
-        })}
-      >
+      <form className="space-y-3" onSubmit={onSubmit}>
         <TextField.Root placeholder="Title" {...register("title")} />
         <ErrorMessage>{errors.title?.message}</ErrorMessage>
         <Controller
@@ -55,7 +53,9 @@ const NewIssuePage = () => {
         />
         <ErrorMessage>{errors.description?.message}</ErrorMessage>
 
-        <Button disabled={isSubmiting}>Submit New Issue{isSubmiting && <Spinner/>}</Button>
+        <Button disabled={isSubmiting}>
+          Submit New Issue{isSubmiting && <Spinner />}
+        </Button>
       </form>
     </div>
   );
