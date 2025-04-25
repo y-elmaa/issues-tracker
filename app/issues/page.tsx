@@ -1,25 +1,24 @@
 import { prisma } from "@/prisma/client";
-import { Button, Table } from "@radix-ui/themes";
+import { Table } from "@radix-ui/themes";
 import Link from "../components/Link";
 import React from "react";
 import IssuesStatusBadge from "../components/IssuesStatusBadge";
 import IssuesAction from "./IssuesAction";
-import delay from 'delay';
 
 const IssuesPage = async () => {
   const issues = await prisma.issus.findMany();
-  await delay(2000);
+
   return (
     <div>
-      <IssuesAction/>
+      <IssuesAction />
       <Table.Root variant="surface">
         <Table.Header>
           <Table.Row>
             <Table.ColumnHeaderCell>Issue</Table.ColumnHeaderCell>
-            <Table.ColumnHeaderCell className="hidden md:table-cell">
+            <Table.ColumnHeaderCell className="hidden sm:table-cell">
               Status
-            </Table.ColumnHeaderCell>
-            <Table.ColumnHeaderCell className="hidden md:table-cell">
+            </Table.ColumnHeaderCell> 
+            <Table.ColumnHeaderCell className="hidden sm:table-cell">
               Date
             </Table.ColumnHeaderCell>
           </Table.Row>
@@ -28,18 +27,15 @@ const IssuesPage = async () => {
           {issues.map((issue) => (
             <Table.Row key={issue.id}>
               <Table.Cell>
-                
-                <Link href={`/issues/${issue.id}`}>
-                {issue.title}
-                </Link>
-                <div className="block md:hidden">
+                <Link href={`/issues/${issue.id}`}>{issue.title}</Link>
+                <div className="block sm:hidden">
                   <IssuesStatusBadge status={issue.status} />
                 </div>
               </Table.Cell>
-              <Table.Cell className="hidden md:table-cell">
-                <IssuesStatusBadge status={issue.status}/>
+              <Table.Cell className="hidden sm:table-cell">
+                <IssuesStatusBadge status={issue.status} />
               </Table.Cell>
-              <Table.Cell className="hidden md:table-cell">
+              <Table.Cell className="hidden sm:table-cell">
                 {issue.createdAt.toDateString()}
               </Table.Cell>
             </Table.Row>

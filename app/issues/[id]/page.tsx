@@ -13,6 +13,7 @@ const IssueDetailPage = async ({ params }: Props) => {
     where: { id: parseInt(params.id) },
   });
   if (!issue) notFound();
+
   return (
     <div>
       <Heading>{issue?.title}</Heading>
@@ -20,7 +21,7 @@ const IssueDetailPage = async ({ params }: Props) => {
         <IssuesStatusBadge status={issue?.status} />
         <p>{issue?.createdAt.toDateString()}</p>
       </Flex>
-      <Card className="prose" mt='4'>
+      <Card className="prose" mt="4">
         <ReactMarkdown>{issue?.description}</ReactMarkdown>
       </Card>
     </div>
