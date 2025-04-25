@@ -1,8 +1,6 @@
 import { prisma } from "@/prisma/client";
 import { Table } from "@radix-ui/themes";
-import Link from "../components/Link";
-import React from "react";
-import IssuesStatusBadge from "../components/IssuesStatusBadge";
+import { IssuesStatusBadge, Link } from "../components";
 import IssuesAction from "./IssuesAction";
 
 const IssuesPage = async () => {
@@ -17,7 +15,7 @@ const IssuesPage = async () => {
             <Table.ColumnHeaderCell>Issue</Table.ColumnHeaderCell>
             <Table.ColumnHeaderCell className="hidden sm:table-cell">
               Status
-            </Table.ColumnHeaderCell> 
+            </Table.ColumnHeaderCell>
             <Table.ColumnHeaderCell className="hidden sm:table-cell">
               Date
             </Table.ColumnHeaderCell>
