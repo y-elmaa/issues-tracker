@@ -7,7 +7,7 @@ import React, { useState } from "react";
 import axios from "axios";
 import { useRouter } from "next/navigation";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { createIssueSchema } from "@/app/ValidationSchemas";
+import { issueSchema } from "@/app/ValidationSchemas";
 import { z } from "zod";
 import { ErrorMessage, Spinner } from "@/app/components";
 import { Issus } from "@/app/generated/prisma";
@@ -16,7 +16,7 @@ const SimpleMDE = dynamic(() => import("react-simplemde-editor"), {
   ssr: false,
 });
 
-type IssueFormData = z.infer<typeof createIssueSchema>;
+type IssueFormData = z.infer<typeof issueSchema>;
 
 const IssueForm = ({ issue }: { issue?: Issus }) => {
   const router = useRouter();
@@ -25,7 +25,7 @@ const IssueForm = ({ issue }: { issue?: Issus }) => {
     control,
     handleSubmit,
     formState: { errors },
-  } = useForm<IssueFormData>({ resolver: zodResolver(createIssueSchema) });
+  } = useForm<IssueFormData>({ resolver: zodResolver(issueSchema) });
   const [error, setError] = useState("");
   const [isSubmiting, setSubmiting] = useState(false);
   const onSubmit = handleSubmit(async (data) => {
