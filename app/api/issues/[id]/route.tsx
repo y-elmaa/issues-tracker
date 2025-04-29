@@ -10,7 +10,7 @@ export async function PATCH(
   const validation = issueSchema.safeParse(body);
 
   if (!validation.success)
-    return NextResponse.json(validation.error.format(), { status: 404 });
+    return NextResponse.json(validation.error.format(), { status: 400 });
   const issue = await prisma.issus.findUnique({
     where: { id: parseInt(params.id) },
   });
