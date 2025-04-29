@@ -22,3 +22,22 @@ export async function PATCH(
   });
   return NextResponse.json(updatedIssue);
 }
+export async function DELETE(
+  request: NextRequest,
+  { params }: { params: { id: string } }
+) {
+  
+  
+
+  
+  const issue = await prisma.issus.findUnique({
+    where: { id: parseInt(params.id) },
+  });
+  if (!issue)
+    return NextResponse.json({ error: "issue not exist" }, { status: 404 });
+   await prisma.issus.delete({
+    where: { id: issue.id },
+    
+  });
+  return NextResponse.json({});
+}
