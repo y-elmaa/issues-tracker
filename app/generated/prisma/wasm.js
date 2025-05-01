@@ -123,7 +123,8 @@ exports.Prisma.IssusScalarFieldEnum = {
   description: 'description',
   status: 'status',
   createdAt: 'createdAt',
-  updatedt: 'updatedt'
+  updatedt: 'updatedt',
+  assigneToUserId: 'assigneToUserId'
 };
 
 exports.Prisma.AccountScalarFieldEnum = {

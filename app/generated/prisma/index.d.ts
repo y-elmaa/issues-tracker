@@ -1253,11 +1253,13 @@ export namespace Prisma {
   export type UserCountOutputType = {
     accounts: number
     sessions: number
+    assignedIssues: number
   }
 
   export type UserCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     accounts?: boolean | UserCountOutputTypeCountAccountsArgs
     sessions?: boolean | UserCountOutputTypeCountSessionsArgs
+    assignedIssues?: boolean | UserCountOutputTypeCountAssignedIssuesArgs
   }
 
   // Custom InputTypes
@@ -1283,6 +1285,13 @@ export namespace Prisma {
    */
   export type UserCountOutputTypeCountSessionsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     where?: SessionWhereInput
+  }
+
+  /**
+   * UserCountOutputType without action
+   */
+  export type UserCountOutputTypeCountAssignedIssuesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: IssusWhereInput
   }
 
 
@@ -1317,6 +1326,7 @@ export namespace Prisma {
     status: $Enums.Status | null
     createdAt: Date | null
     updatedt: Date | null
+    assigneToUserId: string | null
   }
 
   export type IssusMaxAggregateOutputType = {
@@ -1326,6 +1336,7 @@ export namespace Prisma {
     status: $Enums.Status | null
     createdAt: Date | null
     updatedt: Date | null
+    assigneToUserId: string | null
   }
 
   export type IssusCountAggregateOutputType = {
@@ -1335,6 +1346,7 @@ export namespace Prisma {
     status: number
     createdAt: number
     updatedt: number
+    assigneToUserId: number
     _all: number
   }
 
@@ -1354,6 +1366,7 @@ export namespace Prisma {
     status?: true
     createdAt?: true
     updatedt?: true
+    assigneToUserId?: true
   }
 
   export type IssusMaxAggregateInputType = {
@@ -1363,6 +1376,7 @@ export namespace Prisma {
     status?: true
     createdAt?: true
     updatedt?: true
+    assigneToUserId?: true
   }
 
   export type IssusCountAggregateInputType = {
@@ -1372,6 +1386,7 @@ export namespace Prisma {
     status?: true
     createdAt?: true
     updatedt?: true
+    assigneToUserId?: true
     _all?: true
   }
 
@@ -1468,6 +1483,7 @@ export namespace Prisma {
     status: $Enums.Status
     createdAt: Date
     updatedt: Date
+    assigneToUserId: string | null
     _count: IssusCountAggregateOutputType | null
     _avg: IssusAvgAggregateOutputType | null
     _sum: IssusSumAggregateOutputType | null
@@ -1496,6 +1512,8 @@ export namespace Prisma {
     status?: boolean
     createdAt?: boolean
     updatedt?: boolean
+    assigneToUserId?: boolean
+    assigneToUser?: boolean | Issus$assigneToUserArgs<ExtArgs>
   }, ExtArgs["result"]["issus"]>
 
   export type IssusSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
@@ -1505,6 +1523,8 @@ export namespace Prisma {
     status?: boolean
     createdAt?: boolean
     updatedt?: boolean
+    assigneToUserId?: boolean
+    assigneToUser?: boolean | Issus$assigneToUserArgs<ExtArgs>
   }, ExtArgs["result"]["issus"]>
 
   export type IssusSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
@@ -1514,6 +1534,8 @@ export namespace Prisma {
     status?: boolean
     createdAt?: boolean
     updatedt?: boolean
+    assigneToUserId?: boolean
+    assigneToUser?: boolean | Issus$assigneToUserArgs<ExtArgs>
   }, ExtArgs["result"]["issus"]>
 
   export type IssusSelectScalar = {
@@ -1523,13 +1545,25 @@ export namespace Prisma {
     status?: boolean
     createdAt?: boolean
     updatedt?: boolean
+    assigneToUserId?: boolean
   }
 
-  export type IssusOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "title" | "description" | "status" | "createdAt" | "updatedt", ExtArgs["result"]["issus"]>
+  export type IssusOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "title" | "description" | "status" | "createdAt" | "updatedt" | "assigneToUserId", ExtArgs["result"]["issus"]>
+  export type IssusInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    assigneToUser?: boolean | Issus$assigneToUserArgs<ExtArgs>
+  }
+  export type IssusIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    assigneToUser?: boolean | Issus$assigneToUserArgs<ExtArgs>
+  }
+  export type IssusIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    assigneToUser?: boolean | Issus$assigneToUserArgs<ExtArgs>
+  }
 
   export type $IssusPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "Issus"
-    objects: {}
+    objects: {
+      assigneToUser: Prisma.$UserPayload<ExtArgs> | null
+    }
     scalars: $Extensions.GetPayloadResult<{
       id: number
       title: string
@@ -1537,6 +1571,7 @@ export namespace Prisma {
       status: $Enums.Status
       createdAt: Date
       updatedt: Date
+      assigneToUserId: string | null
     }, ExtArgs["result"]["issus"]>
     composites: {}
   }
@@ -1931,6 +1966,7 @@ export namespace Prisma {
    */
   export interface Prisma__IssusClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
+    assigneToUser<T extends Issus$assigneToUserArgs<ExtArgs> = {}>(args?: Subset<T, Issus$assigneToUserArgs<ExtArgs>>): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -1966,6 +2002,7 @@ export namespace Prisma {
     readonly status: FieldRef<"Issus", 'Status'>
     readonly createdAt: FieldRef<"Issus", 'DateTime'>
     readonly updatedt: FieldRef<"Issus", 'DateTime'>
+    readonly assigneToUserId: FieldRef<"Issus", 'String'>
   }
     
 
@@ -1982,6 +2019,10 @@ export namespace Prisma {
      * Omit specific fields from the Issus
      */
     omit?: IssusOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: IssusInclude<ExtArgs> | null
     /**
      * Filter, which Issus to fetch.
      */
@@ -2001,6 +2042,10 @@ export namespace Prisma {
      */
     omit?: IssusOmit<ExtArgs> | null
     /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: IssusInclude<ExtArgs> | null
+    /**
      * Filter, which Issus to fetch.
      */
     where: IssusWhereUniqueInput
@@ -2018,6 +2063,10 @@ export namespace Prisma {
      * Omit specific fields from the Issus
      */
     omit?: IssusOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: IssusInclude<ExtArgs> | null
     /**
      * Filter, which Issus to fetch.
      */
@@ -2067,6 +2116,10 @@ export namespace Prisma {
      */
     omit?: IssusOmit<ExtArgs> | null
     /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: IssusInclude<ExtArgs> | null
+    /**
      * Filter, which Issus to fetch.
      */
     where?: IssusWhereInput
@@ -2115,6 +2168,10 @@ export namespace Prisma {
      */
     omit?: IssusOmit<ExtArgs> | null
     /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: IssusInclude<ExtArgs> | null
+    /**
      * Filter, which Issuses to fetch.
      */
     where?: IssusWhereInput
@@ -2158,6 +2215,10 @@ export namespace Prisma {
      */
     omit?: IssusOmit<ExtArgs> | null
     /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: IssusInclude<ExtArgs> | null
+    /**
      * The data needed to create a Issus.
      */
     data: XOR<IssusCreateInput, IssusUncheckedCreateInput>
@@ -2191,6 +2252,10 @@ export namespace Prisma {
      */
     data: IssusCreateManyInput | IssusCreateManyInput[]
     skipDuplicates?: boolean
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: IssusIncludeCreateManyAndReturn<ExtArgs> | null
   }
 
   /**
@@ -2205,6 +2270,10 @@ export namespace Prisma {
      * Omit specific fields from the Issus
      */
     omit?: IssusOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: IssusInclude<ExtArgs> | null
     /**
      * The data needed to update a Issus.
      */
@@ -2257,6 +2326,10 @@ export namespace Prisma {
      * Limit how many Issuses to update.
      */
     limit?: number
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: IssusIncludeUpdateManyAndReturn<ExtArgs> | null
   }
 
   /**
@@ -2271,6 +2344,10 @@ export namespace Prisma {
      * Omit specific fields from the Issus
      */
     omit?: IssusOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: IssusInclude<ExtArgs> | null
     /**
      * The filter to search for the Issus to update in case it exists.
      */
@@ -2298,6 +2375,10 @@ export namespace Prisma {
      */
     omit?: IssusOmit<ExtArgs> | null
     /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: IssusInclude<ExtArgs> | null
+    /**
      * Filter which Issus to delete.
      */
     where: IssusWhereUniqueInput
@@ -2318,6 +2399,25 @@ export namespace Prisma {
   }
 
   /**
+   * Issus.assigneToUser
+   */
+  export type Issus$assigneToUserArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the User
+     */
+    select?: UserSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the User
+     */
+    omit?: UserOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: UserInclude<ExtArgs> | null
+    where?: UserWhereInput
+  }
+
+  /**
    * Issus without action
    */
   export type IssusDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -2329,6 +2429,10 @@ export namespace Prisma {
      * Omit specific fields from the Issus
      */
     omit?: IssusOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: IssusInclude<ExtArgs> | null
   }
 
 
@@ -4726,6 +4830,7 @@ export namespace Prisma {
     image?: boolean
     accounts?: boolean | User$accountsArgs<ExtArgs>
     sessions?: boolean | User$sessionsArgs<ExtArgs>
+    assignedIssues?: boolean | User$assignedIssuesArgs<ExtArgs>
     _count?: boolean | UserCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["user"]>
 
@@ -4757,6 +4862,7 @@ export namespace Prisma {
   export type UserInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     accounts?: boolean | User$accountsArgs<ExtArgs>
     sessions?: boolean | User$sessionsArgs<ExtArgs>
+    assignedIssues?: boolean | User$assignedIssuesArgs<ExtArgs>
     _count?: boolean | UserCountOutputTypeDefaultArgs<ExtArgs>
   }
   export type UserIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
@@ -4767,6 +4873,7 @@ export namespace Prisma {
     objects: {
       accounts: Prisma.$AccountPayload<ExtArgs>[]
       sessions: Prisma.$SessionPayload<ExtArgs>[]
+      assignedIssues: Prisma.$IssusPayload<ExtArgs>[]
     }
     scalars: $Extensions.GetPayloadResult<{
       id: string
@@ -5170,6 +5277,7 @@ export namespace Prisma {
     readonly [Symbol.toStringTag]: "PrismaPromise"
     accounts<T extends User$accountsArgs<ExtArgs> = {}>(args?: Subset<T, User$accountsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$AccountPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     sessions<T extends User$sessionsArgs<ExtArgs> = {}>(args?: Subset<T, User$sessionsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$SessionPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    assignedIssues<T extends User$assignedIssuesArgs<ExtArgs> = {}>(args?: Subset<T, User$assignedIssuesArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$IssusPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -5637,6 +5745,30 @@ export namespace Prisma {
     take?: number
     skip?: number
     distinct?: SessionScalarFieldEnum | SessionScalarFieldEnum[]
+  }
+
+  /**
+   * User.assignedIssues
+   */
+  export type User$assignedIssuesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Issus
+     */
+    select?: IssusSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Issus
+     */
+    omit?: IssusOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: IssusInclude<ExtArgs> | null
+    where?: IssusWhereInput
+    orderBy?: IssusOrderByWithRelationInput | IssusOrderByWithRelationInput[]
+    cursor?: IssusWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: IssusScalarFieldEnum | IssusScalarFieldEnum[]
   }
 
   /**
@@ -6647,7 +6779,8 @@ export namespace Prisma {
     description: 'description',
     status: 'status',
     createdAt: 'createdAt',
-    updatedt: 'updatedt'
+    updatedt: 'updatedt',
+    assigneToUserId: 'assigneToUserId'
   };
 
   export type IssusScalarFieldEnum = (typeof IssusScalarFieldEnum)[keyof typeof IssusScalarFieldEnum]
@@ -6813,6 +6946,8 @@ export namespace Prisma {
     status?: EnumStatusFilter<"Issus"> | $Enums.Status
     createdAt?: DateTimeFilter<"Issus"> | Date | string
     updatedt?: DateTimeFilter<"Issus"> | Date | string
+    assigneToUserId?: StringNullableFilter<"Issus"> | string | null
+    assigneToUser?: XOR<UserNullableScalarRelationFilter, UserWhereInput> | null
   }
 
   export type IssusOrderByWithRelationInput = {
@@ -6822,6 +6957,8 @@ export namespace Prisma {
     status?: SortOrder
     createdAt?: SortOrder
     updatedt?: SortOrder
+    assigneToUserId?: SortOrderInput | SortOrder
+    assigneToUser?: UserOrderByWithRelationInput
   }
 
   export type IssusWhereUniqueInput = Prisma.AtLeast<{
@@ -6834,6 +6971,8 @@ export namespace Prisma {
     status?: EnumStatusFilter<"Issus"> | $Enums.Status
     createdAt?: DateTimeFilter<"Issus"> | Date | string
     updatedt?: DateTimeFilter<"Issus"> | Date | string
+    assigneToUserId?: StringNullableFilter<"Issus"> | string | null
+    assigneToUser?: XOR<UserNullableScalarRelationFilter, UserWhereInput> | null
   }, "id">
 
   export type IssusOrderByWithAggregationInput = {
@@ -6843,6 +6982,7 @@ export namespace Prisma {
     status?: SortOrder
     createdAt?: SortOrder
     updatedt?: SortOrder
+    assigneToUserId?: SortOrderInput | SortOrder
     _count?: IssusCountOrderByAggregateInput
     _avg?: IssusAvgOrderByAggregateInput
     _max?: IssusMaxOrderByAggregateInput
@@ -6860,6 +7000,7 @@ export namespace Prisma {
     status?: EnumStatusWithAggregatesFilter<"Issus"> | $Enums.Status
     createdAt?: DateTimeWithAggregatesFilter<"Issus"> | Date | string
     updatedt?: DateTimeWithAggregatesFilter<"Issus"> | Date | string
+    assigneToUserId?: StringNullableWithAggregatesFilter<"Issus"> | string | null
   }
 
   export type AccountWhereInput = {
@@ -7016,6 +7157,7 @@ export namespace Prisma {
     image?: StringNullableFilter<"User"> | string | null
     accounts?: AccountListRelationFilter
     sessions?: SessionListRelationFilter
+    assignedIssues?: IssusListRelationFilter
   }
 
   export type UserOrderByWithRelationInput = {
@@ -7026,6 +7168,7 @@ export namespace Prisma {
     image?: SortOrderInput | SortOrder
     accounts?: AccountOrderByRelationAggregateInput
     sessions?: SessionOrderByRelationAggregateInput
+    assignedIssues?: IssusOrderByRelationAggregateInput
   }
 
   export type UserWhereUniqueInput = Prisma.AtLeast<{
@@ -7039,6 +7182,7 @@ export namespace Prisma {
     image?: StringNullableFilter<"User"> | string | null
     accounts?: AccountListRelationFilter
     sessions?: SessionListRelationFilter
+    assignedIssues?: IssusListRelationFilter
   }, "id" | "email">
 
   export type UserOrderByWithAggregationInput = {
@@ -7112,6 +7256,7 @@ export namespace Prisma {
     status?: $Enums.Status
     createdAt?: Date | string
     updatedt?: Date | string
+    assigneToUser?: UserCreateNestedOneWithoutAssignedIssuesInput
   }
 
   export type IssusUncheckedCreateInput = {
@@ -7121,6 +7266,7 @@ export namespace Prisma {
     status?: $Enums.Status
     createdAt?: Date | string
     updatedt?: Date | string
+    assigneToUserId?: string | null
   }
 
   export type IssusUpdateInput = {
@@ -7129,6 +7275,7 @@ export namespace Prisma {
     status?: EnumStatusFieldUpdateOperationsInput | $Enums.Status
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedt?: DateTimeFieldUpdateOperationsInput | Date | string
+    assigneToUser?: UserUpdateOneWithoutAssignedIssuesNestedInput
   }
 
   export type IssusUncheckedUpdateInput = {
@@ -7138,6 +7285,7 @@ export namespace Prisma {
     status?: EnumStatusFieldUpdateOperationsInput | $Enums.Status
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedt?: DateTimeFieldUpdateOperationsInput | Date | string
+    assigneToUserId?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type IssusCreateManyInput = {
@@ -7147,6 +7295,7 @@ export namespace Prisma {
     status?: $Enums.Status
     createdAt?: Date | string
     updatedt?: Date | string
+    assigneToUserId?: string | null
   }
 
   export type IssusUpdateManyMutationInput = {
@@ -7164,6 +7313,7 @@ export namespace Prisma {
     status?: EnumStatusFieldUpdateOperationsInput | $Enums.Status
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedt?: DateTimeFieldUpdateOperationsInput | Date | string
+    assigneToUserId?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type AccountCreateInput = {
@@ -7326,6 +7476,7 @@ export namespace Prisma {
     image?: string | null
     accounts?: AccountCreateNestedManyWithoutUserInput
     sessions?: SessionCreateNestedManyWithoutUserInput
+    assignedIssues?: IssusCreateNestedManyWithoutAssigneToUserInput
   }
 
   export type UserUncheckedCreateInput = {
@@ -7336,6 +7487,7 @@ export namespace Prisma {
     image?: string | null
     accounts?: AccountUncheckedCreateNestedManyWithoutUserInput
     sessions?: SessionUncheckedCreateNestedManyWithoutUserInput
+    assignedIssues?: IssusUncheckedCreateNestedManyWithoutAssigneToUserInput
   }
 
   export type UserUpdateInput = {
@@ -7346,6 +7498,7 @@ export namespace Prisma {
     image?: NullableStringFieldUpdateOperationsInput | string | null
     accounts?: AccountUpdateManyWithoutUserNestedInput
     sessions?: SessionUpdateManyWithoutUserNestedInput
+    assignedIssues?: IssusUpdateManyWithoutAssigneToUserNestedInput
   }
 
   export type UserUncheckedUpdateInput = {
@@ -7356,6 +7509,7 @@ export namespace Prisma {
     image?: NullableStringFieldUpdateOperationsInput | string | null
     accounts?: AccountUncheckedUpdateManyWithoutUserNestedInput
     sessions?: SessionUncheckedUpdateManyWithoutUserNestedInput
+    assignedIssues?: IssusUncheckedUpdateManyWithoutAssigneToUserNestedInput
   }
 
   export type UserCreateManyInput = {
@@ -7468,6 +7622,31 @@ export namespace Prisma {
     not?: NestedDateTimeFilter<$PrismaModel> | Date | string
   }
 
+  export type StringNullableFilter<$PrismaModel = never> = {
+    equals?: string | StringFieldRefInput<$PrismaModel> | null
+    in?: string[] | ListStringFieldRefInput<$PrismaModel> | null
+    notIn?: string[] | ListStringFieldRefInput<$PrismaModel> | null
+    lt?: string | StringFieldRefInput<$PrismaModel>
+    lte?: string | StringFieldRefInput<$PrismaModel>
+    gt?: string | StringFieldRefInput<$PrismaModel>
+    gte?: string | StringFieldRefInput<$PrismaModel>
+    contains?: string | StringFieldRefInput<$PrismaModel>
+    startsWith?: string | StringFieldRefInput<$PrismaModel>
+    endsWith?: string | StringFieldRefInput<$PrismaModel>
+    mode?: QueryMode
+    not?: NestedStringNullableFilter<$PrismaModel> | string | null
+  }
+
+  export type UserNullableScalarRelationFilter = {
+    is?: UserWhereInput | null
+    isNot?: UserWhereInput | null
+  }
+
+  export type SortOrderInput = {
+    sort: SortOrder
+    nulls?: NullsOrder
+  }
+
   export type IssusCountOrderByAggregateInput = {
     id?: SortOrder
     title?: SortOrder
@@ -7475,6 +7654,7 @@ export namespace Prisma {
     status?: SortOrder
     createdAt?: SortOrder
     updatedt?: SortOrder
+    assigneToUserId?: SortOrder
   }
 
   export type IssusAvgOrderByAggregateInput = {
@@ -7488,6 +7668,7 @@ export namespace Prisma {
     status?: SortOrder
     createdAt?: SortOrder
     updatedt?: SortOrder
+    assigneToUserId?: SortOrder
   }
 
   export type IssusMinOrderByAggregateInput = {
@@ -7497,6 +7678,7 @@ export namespace Prisma {
     status?: SortOrder
     createdAt?: SortOrder
     updatedt?: SortOrder
+    assigneToUserId?: SortOrder
   }
 
   export type IssusSumOrderByAggregateInput = {
@@ -7561,7 +7743,7 @@ export namespace Prisma {
     _max?: NestedDateTimeFilter<$PrismaModel>
   }
 
-  export type StringNullableFilter<$PrismaModel = never> = {
+  export type StringNullableWithAggregatesFilter<$PrismaModel = never> = {
     equals?: string | StringFieldRefInput<$PrismaModel> | null
     in?: string[] | ListStringFieldRefInput<$PrismaModel> | null
     notIn?: string[] | ListStringFieldRefInput<$PrismaModel> | null
@@ -7573,7 +7755,10 @@ export namespace Prisma {
     startsWith?: string | StringFieldRefInput<$PrismaModel>
     endsWith?: string | StringFieldRefInput<$PrismaModel>
     mode?: QueryMode
-    not?: NestedStringNullableFilter<$PrismaModel> | string | null
+    not?: NestedStringNullableWithAggregatesFilter<$PrismaModel> | string | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _min?: NestedStringNullableFilter<$PrismaModel>
+    _max?: NestedStringNullableFilter<$PrismaModel>
   }
 
   export type IntNullableFilter<$PrismaModel = never> = {
@@ -7590,11 +7775,6 @@ export namespace Prisma {
   export type UserScalarRelationFilter = {
     is?: UserWhereInput
     isNot?: UserWhereInput
-  }
-
-  export type SortOrderInput = {
-    sort: SortOrder
-    nulls?: NullsOrder
   }
 
   export type AccountProviderProviderAccountIdCompoundUniqueInput = {
@@ -7653,24 +7833,6 @@ export namespace Prisma {
 
   export type AccountSumOrderByAggregateInput = {
     expires_at?: SortOrder
-  }
-
-  export type StringNullableWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: string | StringFieldRefInput<$PrismaModel> | null
-    in?: string[] | ListStringFieldRefInput<$PrismaModel> | null
-    notIn?: string[] | ListStringFieldRefInput<$PrismaModel> | null
-    lt?: string | StringFieldRefInput<$PrismaModel>
-    lte?: string | StringFieldRefInput<$PrismaModel>
-    gt?: string | StringFieldRefInput<$PrismaModel>
-    gte?: string | StringFieldRefInput<$PrismaModel>
-    contains?: string | StringFieldRefInput<$PrismaModel>
-    startsWith?: string | StringFieldRefInput<$PrismaModel>
-    endsWith?: string | StringFieldRefInput<$PrismaModel>
-    mode?: QueryMode
-    not?: NestedStringNullableWithAggregatesFilter<$PrismaModel> | string | null
-    _count?: NestedIntNullableFilter<$PrismaModel>
-    _min?: NestedStringNullableFilter<$PrismaModel>
-    _max?: NestedStringNullableFilter<$PrismaModel>
   }
 
   export type IntNullableWithAggregatesFilter<$PrismaModel = never> = {
@@ -7733,11 +7895,21 @@ export namespace Prisma {
     none?: SessionWhereInput
   }
 
+  export type IssusListRelationFilter = {
+    every?: IssusWhereInput
+    some?: IssusWhereInput
+    none?: IssusWhereInput
+  }
+
   export type AccountOrderByRelationAggregateInput = {
     _count?: SortOrder
   }
 
   export type SessionOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type IssusOrderByRelationAggregateInput = {
     _count?: SortOrder
   }
 
@@ -7802,6 +7974,12 @@ export namespace Prisma {
     expires?: SortOrder
   }
 
+  export type UserCreateNestedOneWithoutAssignedIssuesInput = {
+    create?: XOR<UserCreateWithoutAssignedIssuesInput, UserUncheckedCreateWithoutAssignedIssuesInput>
+    connectOrCreate?: UserCreateOrConnectWithoutAssignedIssuesInput
+    connect?: UserWhereUniqueInput
+  }
+
   export type StringFieldUpdateOperationsInput = {
     set?: string
   }
@@ -7814,6 +7992,16 @@ export namespace Prisma {
     set?: Date | string
   }
 
+  export type UserUpdateOneWithoutAssignedIssuesNestedInput = {
+    create?: XOR<UserCreateWithoutAssignedIssuesInput, UserUncheckedCreateWithoutAssignedIssuesInput>
+    connectOrCreate?: UserCreateOrConnectWithoutAssignedIssuesInput
+    upsert?: UserUpsertWithoutAssignedIssuesInput
+    disconnect?: UserWhereInput | boolean
+    delete?: UserWhereInput | boolean
+    connect?: UserWhereUniqueInput
+    update?: XOR<XOR<UserUpdateToOneWithWhereWithoutAssignedIssuesInput, UserUpdateWithoutAssignedIssuesInput>, UserUncheckedUpdateWithoutAssignedIssuesInput>
+  }
+
   export type IntFieldUpdateOperationsInput = {
     set?: number
     increment?: number
@@ -7822,14 +8010,14 @@ export namespace Prisma {
     divide?: number
   }
 
+  export type NullableStringFieldUpdateOperationsInput = {
+    set?: string | null
+  }
+
   export type UserCreateNestedOneWithoutAccountsInput = {
     create?: XOR<UserCreateWithoutAccountsInput, UserUncheckedCreateWithoutAccountsInput>
     connectOrCreate?: UserCreateOrConnectWithoutAccountsInput
     connect?: UserWhereUniqueInput
-  }
-
-  export type NullableStringFieldUpdateOperationsInput = {
-    set?: string | null
   }
 
   export type NullableIntFieldUpdateOperationsInput = {
@@ -7876,6 +8064,13 @@ export namespace Prisma {
     connect?: SessionWhereUniqueInput | SessionWhereUniqueInput[]
   }
 
+  export type IssusCreateNestedManyWithoutAssigneToUserInput = {
+    create?: XOR<IssusCreateWithoutAssigneToUserInput, IssusUncheckedCreateWithoutAssigneToUserInput> | IssusCreateWithoutAssigneToUserInput[] | IssusUncheckedCreateWithoutAssigneToUserInput[]
+    connectOrCreate?: IssusCreateOrConnectWithoutAssigneToUserInput | IssusCreateOrConnectWithoutAssigneToUserInput[]
+    createMany?: IssusCreateManyAssigneToUserInputEnvelope
+    connect?: IssusWhereUniqueInput | IssusWhereUniqueInput[]
+  }
+
   export type AccountUncheckedCreateNestedManyWithoutUserInput = {
     create?: XOR<AccountCreateWithoutUserInput, AccountUncheckedCreateWithoutUserInput> | AccountCreateWithoutUserInput[] | AccountUncheckedCreateWithoutUserInput[]
     connectOrCreate?: AccountCreateOrConnectWithoutUserInput | AccountCreateOrConnectWithoutUserInput[]
@@ -7888,6 +8083,13 @@ export namespace Prisma {
     connectOrCreate?: SessionCreateOrConnectWithoutUserInput | SessionCreateOrConnectWithoutUserInput[]
     createMany?: SessionCreateManyUserInputEnvelope
     connect?: SessionWhereUniqueInput | SessionWhereUniqueInput[]
+  }
+
+  export type IssusUncheckedCreateNestedManyWithoutAssigneToUserInput = {
+    create?: XOR<IssusCreateWithoutAssigneToUserInput, IssusUncheckedCreateWithoutAssigneToUserInput> | IssusCreateWithoutAssigneToUserInput[] | IssusUncheckedCreateWithoutAssigneToUserInput[]
+    connectOrCreate?: IssusCreateOrConnectWithoutAssigneToUserInput | IssusCreateOrConnectWithoutAssigneToUserInput[]
+    createMany?: IssusCreateManyAssigneToUserInputEnvelope
+    connect?: IssusWhereUniqueInput | IssusWhereUniqueInput[]
   }
 
   export type NullableDateTimeFieldUpdateOperationsInput = {
@@ -7922,6 +8124,20 @@ export namespace Prisma {
     deleteMany?: SessionScalarWhereInput | SessionScalarWhereInput[]
   }
 
+  export type IssusUpdateManyWithoutAssigneToUserNestedInput = {
+    create?: XOR<IssusCreateWithoutAssigneToUserInput, IssusUncheckedCreateWithoutAssigneToUserInput> | IssusCreateWithoutAssigneToUserInput[] | IssusUncheckedCreateWithoutAssigneToUserInput[]
+    connectOrCreate?: IssusCreateOrConnectWithoutAssigneToUserInput | IssusCreateOrConnectWithoutAssigneToUserInput[]
+    upsert?: IssusUpsertWithWhereUniqueWithoutAssigneToUserInput | IssusUpsertWithWhereUniqueWithoutAssigneToUserInput[]
+    createMany?: IssusCreateManyAssigneToUserInputEnvelope
+    set?: IssusWhereUniqueInput | IssusWhereUniqueInput[]
+    disconnect?: IssusWhereUniqueInput | IssusWhereUniqueInput[]
+    delete?: IssusWhereUniqueInput | IssusWhereUniqueInput[]
+    connect?: IssusWhereUniqueInput | IssusWhereUniqueInput[]
+    update?: IssusUpdateWithWhereUniqueWithoutAssigneToUserInput | IssusUpdateWithWhereUniqueWithoutAssigneToUserInput[]
+    updateMany?: IssusUpdateManyWithWhereWithoutAssigneToUserInput | IssusUpdateManyWithWhereWithoutAssigneToUserInput[]
+    deleteMany?: IssusScalarWhereInput | IssusScalarWhereInput[]
+  }
+
   export type AccountUncheckedUpdateManyWithoutUserNestedInput = {
     create?: XOR<AccountCreateWithoutUserInput, AccountUncheckedCreateWithoutUserInput> | AccountCreateWithoutUserInput[] | AccountUncheckedCreateWithoutUserInput[]
     connectOrCreate?: AccountCreateOrConnectWithoutUserInput | AccountCreateOrConnectWithoutUserInput[]
@@ -7948,6 +8164,20 @@ export namespace Prisma {
     update?: SessionUpdateWithWhereUniqueWithoutUserInput | SessionUpdateWithWhereUniqueWithoutUserInput[]
     updateMany?: SessionUpdateManyWithWhereWithoutUserInput | SessionUpdateManyWithWhereWithoutUserInput[]
     deleteMany?: SessionScalarWhereInput | SessionScalarWhereInput[]
+  }
+
+  export type IssusUncheckedUpdateManyWithoutAssigneToUserNestedInput = {
+    create?: XOR<IssusCreateWithoutAssigneToUserInput, IssusUncheckedCreateWithoutAssigneToUserInput> | IssusCreateWithoutAssigneToUserInput[] | IssusUncheckedCreateWithoutAssigneToUserInput[]
+    connectOrCreate?: IssusCreateOrConnectWithoutAssigneToUserInput | IssusCreateOrConnectWithoutAssigneToUserInput[]
+    upsert?: IssusUpsertWithWhereUniqueWithoutAssigneToUserInput | IssusUpsertWithWhereUniqueWithoutAssigneToUserInput[]
+    createMany?: IssusCreateManyAssigneToUserInputEnvelope
+    set?: IssusWhereUniqueInput | IssusWhereUniqueInput[]
+    disconnect?: IssusWhereUniqueInput | IssusWhereUniqueInput[]
+    delete?: IssusWhereUniqueInput | IssusWhereUniqueInput[]
+    connect?: IssusWhereUniqueInput | IssusWhereUniqueInput[]
+    update?: IssusUpdateWithWhereUniqueWithoutAssigneToUserInput | IssusUpdateWithWhereUniqueWithoutAssigneToUserInput[]
+    updateMany?: IssusUpdateManyWithWhereWithoutAssigneToUserInput | IssusUpdateManyWithWhereWithoutAssigneToUserInput[]
+    deleteMany?: IssusScalarWhereInput | IssusScalarWhereInput[]
   }
 
   export type NestedIntFilter<$PrismaModel = never> = {
@@ -7991,6 +8221,20 @@ export namespace Prisma {
     gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
     gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
     not?: NestedDateTimeFilter<$PrismaModel> | Date | string
+  }
+
+  export type NestedStringNullableFilter<$PrismaModel = never> = {
+    equals?: string | StringFieldRefInput<$PrismaModel> | null
+    in?: string[] | ListStringFieldRefInput<$PrismaModel> | null
+    notIn?: string[] | ListStringFieldRefInput<$PrismaModel> | null
+    lt?: string | StringFieldRefInput<$PrismaModel>
+    lte?: string | StringFieldRefInput<$PrismaModel>
+    gt?: string | StringFieldRefInput<$PrismaModel>
+    gte?: string | StringFieldRefInput<$PrismaModel>
+    contains?: string | StringFieldRefInput<$PrismaModel>
+    startsWith?: string | StringFieldRefInput<$PrismaModel>
+    endsWith?: string | StringFieldRefInput<$PrismaModel>
+    not?: NestedStringNullableFilter<$PrismaModel> | string | null
   }
 
   export type NestedIntWithAggregatesFilter<$PrismaModel = never> = {
@@ -8061,31 +8305,6 @@ export namespace Prisma {
     _max?: NestedDateTimeFilter<$PrismaModel>
   }
 
-  export type NestedStringNullableFilter<$PrismaModel = never> = {
-    equals?: string | StringFieldRefInput<$PrismaModel> | null
-    in?: string[] | ListStringFieldRefInput<$PrismaModel> | null
-    notIn?: string[] | ListStringFieldRefInput<$PrismaModel> | null
-    lt?: string | StringFieldRefInput<$PrismaModel>
-    lte?: string | StringFieldRefInput<$PrismaModel>
-    gt?: string | StringFieldRefInput<$PrismaModel>
-    gte?: string | StringFieldRefInput<$PrismaModel>
-    contains?: string | StringFieldRefInput<$PrismaModel>
-    startsWith?: string | StringFieldRefInput<$PrismaModel>
-    endsWith?: string | StringFieldRefInput<$PrismaModel>
-    not?: NestedStringNullableFilter<$PrismaModel> | string | null
-  }
-
-  export type NestedIntNullableFilter<$PrismaModel = never> = {
-    equals?: number | IntFieldRefInput<$PrismaModel> | null
-    in?: number[] | ListIntFieldRefInput<$PrismaModel> | null
-    notIn?: number[] | ListIntFieldRefInput<$PrismaModel> | null
-    lt?: number | IntFieldRefInput<$PrismaModel>
-    lte?: number | IntFieldRefInput<$PrismaModel>
-    gt?: number | IntFieldRefInput<$PrismaModel>
-    gte?: number | IntFieldRefInput<$PrismaModel>
-    not?: NestedIntNullableFilter<$PrismaModel> | number | null
-  }
-
   export type NestedStringNullableWithAggregatesFilter<$PrismaModel = never> = {
     equals?: string | StringFieldRefInput<$PrismaModel> | null
     in?: string[] | ListStringFieldRefInput<$PrismaModel> | null
@@ -8101,6 +8320,17 @@ export namespace Prisma {
     _count?: NestedIntNullableFilter<$PrismaModel>
     _min?: NestedStringNullableFilter<$PrismaModel>
     _max?: NestedStringNullableFilter<$PrismaModel>
+  }
+
+  export type NestedIntNullableFilter<$PrismaModel = never> = {
+    equals?: number | IntFieldRefInput<$PrismaModel> | null
+    in?: number[] | ListIntFieldRefInput<$PrismaModel> | null
+    notIn?: number[] | ListIntFieldRefInput<$PrismaModel> | null
+    lt?: number | IntFieldRefInput<$PrismaModel>
+    lte?: number | IntFieldRefInput<$PrismaModel>
+    gt?: number | IntFieldRefInput<$PrismaModel>
+    gte?: number | IntFieldRefInput<$PrismaModel>
+    not?: NestedIntNullableFilter<$PrismaModel> | number | null
   }
 
   export type NestedIntNullableWithAggregatesFilter<$PrismaModel = never> = {
@@ -8155,6 +8385,62 @@ export namespace Prisma {
     _max?: NestedDateTimeNullableFilter<$PrismaModel>
   }
 
+  export type UserCreateWithoutAssignedIssuesInput = {
+    id?: string
+    name?: string | null
+    email?: string | null
+    emailVerified?: Date | string | null
+    image?: string | null
+    accounts?: AccountCreateNestedManyWithoutUserInput
+    sessions?: SessionCreateNestedManyWithoutUserInput
+  }
+
+  export type UserUncheckedCreateWithoutAssignedIssuesInput = {
+    id?: string
+    name?: string | null
+    email?: string | null
+    emailVerified?: Date | string | null
+    image?: string | null
+    accounts?: AccountUncheckedCreateNestedManyWithoutUserInput
+    sessions?: SessionUncheckedCreateNestedManyWithoutUserInput
+  }
+
+  export type UserCreateOrConnectWithoutAssignedIssuesInput = {
+    where: UserWhereUniqueInput
+    create: XOR<UserCreateWithoutAssignedIssuesInput, UserUncheckedCreateWithoutAssignedIssuesInput>
+  }
+
+  export type UserUpsertWithoutAssignedIssuesInput = {
+    update: XOR<UserUpdateWithoutAssignedIssuesInput, UserUncheckedUpdateWithoutAssignedIssuesInput>
+    create: XOR<UserCreateWithoutAssignedIssuesInput, UserUncheckedCreateWithoutAssignedIssuesInput>
+    where?: UserWhereInput
+  }
+
+  export type UserUpdateToOneWithWhereWithoutAssignedIssuesInput = {
+    where?: UserWhereInput
+    data: XOR<UserUpdateWithoutAssignedIssuesInput, UserUncheckedUpdateWithoutAssignedIssuesInput>
+  }
+
+  export type UserUpdateWithoutAssignedIssuesInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: NullableStringFieldUpdateOperationsInput | string | null
+    email?: NullableStringFieldUpdateOperationsInput | string | null
+    emailVerified?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    image?: NullableStringFieldUpdateOperationsInput | string | null
+    accounts?: AccountUpdateManyWithoutUserNestedInput
+    sessions?: SessionUpdateManyWithoutUserNestedInput
+  }
+
+  export type UserUncheckedUpdateWithoutAssignedIssuesInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: NullableStringFieldUpdateOperationsInput | string | null
+    email?: NullableStringFieldUpdateOperationsInput | string | null
+    emailVerified?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    image?: NullableStringFieldUpdateOperationsInput | string | null
+    accounts?: AccountUncheckedUpdateManyWithoutUserNestedInput
+    sessions?: SessionUncheckedUpdateManyWithoutUserNestedInput
+  }
+
   export type UserCreateWithoutAccountsInput = {
     id?: string
     name?: string | null
@@ -8162,6 +8448,7 @@ export namespace Prisma {
     emailVerified?: Date | string | null
     image?: string | null
     sessions?: SessionCreateNestedManyWithoutUserInput
+    assignedIssues?: IssusCreateNestedManyWithoutAssigneToUserInput
   }
 
   export type UserUncheckedCreateWithoutAccountsInput = {
@@ -8171,6 +8458,7 @@ export namespace Prisma {
     emailVerified?: Date | string | null
     image?: string | null
     sessions?: SessionUncheckedCreateNestedManyWithoutUserInput
+    assignedIssues?: IssusUncheckedCreateNestedManyWithoutAssigneToUserInput
   }
 
   export type UserCreateOrConnectWithoutAccountsInput = {
@@ -8196,6 +8484,7 @@ export namespace Prisma {
     emailVerified?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     image?: NullableStringFieldUpdateOperationsInput | string | null
     sessions?: SessionUpdateManyWithoutUserNestedInput
+    assignedIssues?: IssusUpdateManyWithoutAssigneToUserNestedInput
   }
 
   export type UserUncheckedUpdateWithoutAccountsInput = {
@@ -8205,6 +8494,7 @@ export namespace Prisma {
     emailVerified?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     image?: NullableStringFieldUpdateOperationsInput | string | null
     sessions?: SessionUncheckedUpdateManyWithoutUserNestedInput
+    assignedIssues?: IssusUncheckedUpdateManyWithoutAssigneToUserNestedInput
   }
 
   export type UserCreateWithoutSessionsInput = {
@@ -8214,6 +8504,7 @@ export namespace Prisma {
     emailVerified?: Date | string | null
     image?: string | null
     accounts?: AccountCreateNestedManyWithoutUserInput
+    assignedIssues?: IssusCreateNestedManyWithoutAssigneToUserInput
   }
 
   export type UserUncheckedCreateWithoutSessionsInput = {
@@ -8223,6 +8514,7 @@ export namespace Prisma {
     emailVerified?: Date | string | null
     image?: string | null
     accounts?: AccountUncheckedCreateNestedManyWithoutUserInput
+    assignedIssues?: IssusUncheckedCreateNestedManyWithoutAssigneToUserInput
   }
 
   export type UserCreateOrConnectWithoutSessionsInput = {
@@ -8248,6 +8540,7 @@ export namespace Prisma {
     emailVerified?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     image?: NullableStringFieldUpdateOperationsInput | string | null
     accounts?: AccountUpdateManyWithoutUserNestedInput
+    assignedIssues?: IssusUpdateManyWithoutAssigneToUserNestedInput
   }
 
   export type UserUncheckedUpdateWithoutSessionsInput = {
@@ -8257,6 +8550,7 @@ export namespace Prisma {
     emailVerified?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     image?: NullableStringFieldUpdateOperationsInput | string | null
     accounts?: AccountUncheckedUpdateManyWithoutUserNestedInput
+    assignedIssues?: IssusUncheckedUpdateManyWithoutAssigneToUserNestedInput
   }
 
   export type AccountCreateWithoutUserInput = {
@@ -8316,6 +8610,33 @@ export namespace Prisma {
 
   export type SessionCreateManyUserInputEnvelope = {
     data: SessionCreateManyUserInput | SessionCreateManyUserInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type IssusCreateWithoutAssigneToUserInput = {
+    title: string
+    description: string
+    status?: $Enums.Status
+    createdAt?: Date | string
+    updatedt?: Date | string
+  }
+
+  export type IssusUncheckedCreateWithoutAssigneToUserInput = {
+    id?: number
+    title: string
+    description: string
+    status?: $Enums.Status
+    createdAt?: Date | string
+    updatedt?: Date | string
+  }
+
+  export type IssusCreateOrConnectWithoutAssigneToUserInput = {
+    where: IssusWhereUniqueInput
+    create: XOR<IssusCreateWithoutAssigneToUserInput, IssusUncheckedCreateWithoutAssigneToUserInput>
+  }
+
+  export type IssusCreateManyAssigneToUserInputEnvelope = {
+    data: IssusCreateManyAssigneToUserInput | IssusCreateManyAssigneToUserInput[]
     skipDuplicates?: boolean
   }
 
@@ -8379,6 +8700,35 @@ export namespace Prisma {
     expires?: DateTimeFilter<"Session"> | Date | string
   }
 
+  export type IssusUpsertWithWhereUniqueWithoutAssigneToUserInput = {
+    where: IssusWhereUniqueInput
+    update: XOR<IssusUpdateWithoutAssigneToUserInput, IssusUncheckedUpdateWithoutAssigneToUserInput>
+    create: XOR<IssusCreateWithoutAssigneToUserInput, IssusUncheckedCreateWithoutAssigneToUserInput>
+  }
+
+  export type IssusUpdateWithWhereUniqueWithoutAssigneToUserInput = {
+    where: IssusWhereUniqueInput
+    data: XOR<IssusUpdateWithoutAssigneToUserInput, IssusUncheckedUpdateWithoutAssigneToUserInput>
+  }
+
+  export type IssusUpdateManyWithWhereWithoutAssigneToUserInput = {
+    where: IssusScalarWhereInput
+    data: XOR<IssusUpdateManyMutationInput, IssusUncheckedUpdateManyWithoutAssigneToUserInput>
+  }
+
+  export type IssusScalarWhereInput = {
+    AND?: IssusScalarWhereInput | IssusScalarWhereInput[]
+    OR?: IssusScalarWhereInput[]
+    NOT?: IssusScalarWhereInput | IssusScalarWhereInput[]
+    id?: IntFilter<"Issus"> | number
+    title?: StringFilter<"Issus"> | string
+    description?: StringFilter<"Issus"> | string
+    status?: EnumStatusFilter<"Issus"> | $Enums.Status
+    createdAt?: DateTimeFilter<"Issus"> | Date | string
+    updatedt?: DateTimeFilter<"Issus"> | Date | string
+    assigneToUserId?: StringNullableFilter<"Issus"> | string | null
+  }
+
   export type AccountCreateManyUserInput = {
     id?: string
     type: string
@@ -8397,6 +8747,15 @@ export namespace Prisma {
     id?: string
     sessionToken: string
     expires: Date | string
+  }
+
+  export type IssusCreateManyAssigneToUserInput = {
+    id?: number
+    title: string
+    description: string
+    status?: $Enums.Status
+    createdAt?: Date | string
+    updatedt?: Date | string
   }
 
   export type AccountUpdateWithoutUserInput = {
@@ -8457,6 +8816,32 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     sessionToken?: StringFieldUpdateOperationsInput | string
     expires?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type IssusUpdateWithoutAssigneToUserInput = {
+    title?: StringFieldUpdateOperationsInput | string
+    description?: StringFieldUpdateOperationsInput | string
+    status?: EnumStatusFieldUpdateOperationsInput | $Enums.Status
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type IssusUncheckedUpdateWithoutAssigneToUserInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    title?: StringFieldUpdateOperationsInput | string
+    description?: StringFieldUpdateOperationsInput | string
+    status?: EnumStatusFieldUpdateOperationsInput | $Enums.Status
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type IssusUncheckedUpdateManyWithoutAssigneToUserInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    title?: StringFieldUpdateOperationsInput | string
+    description?: StringFieldUpdateOperationsInput | string
+    status?: EnumStatusFieldUpdateOperationsInput | $Enums.Status
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
 
