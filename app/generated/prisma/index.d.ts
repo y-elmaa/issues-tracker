@@ -14,10 +14,10 @@ export type PrismaPromise<T> = $Public.PrismaPromise<T>
 
 
 /**
- * Model Issus
+ * Model Issue
  * 
  */
-export type Issus = $Result.DefaultSelection<Prisma.$IssusPayload>
+export type Issue = $Result.DefaultSelection<Prisma.$IssuePayload>
 /**
  * Model Account
  * 
@@ -64,8 +64,8 @@ export const Status: typeof $Enums.Status
  * @example
  * ```
  * const prisma = new PrismaClient()
- * // Fetch zero or more Issuses
- * const issuses = await prisma.issus.findMany()
+ * // Fetch zero or more Issues
+ * const issues = await prisma.issue.findMany()
  * ```
  *
  *
@@ -85,8 +85,8 @@ export class PrismaClient<
    * @example
    * ```
    * const prisma = new PrismaClient()
-   * // Fetch zero or more Issuses
-   * const issuses = await prisma.issus.findMany()
+   * // Fetch zero or more Issues
+   * const issues = await prisma.issue.findMany()
    * ```
    *
    *
@@ -183,14 +183,14 @@ export class PrismaClient<
   }>>
 
       /**
-   * `prisma.issus`: Exposes CRUD operations for the **Issus** model.
+   * `prisma.issue`: Exposes CRUD operations for the **Issue** model.
     * Example usage:
     * ```ts
-    * // Fetch zero or more Issuses
-    * const issuses = await prisma.issus.findMany()
+    * // Fetch zero or more Issues
+    * const issues = await prisma.issue.findMany()
     * ```
     */
-  get issus(): Prisma.IssusDelegate<ExtArgs, ClientOptions>;
+  get issue(): Prisma.IssueDelegate<ExtArgs, ClientOptions>;
 
   /**
    * `prisma.account`: Exposes CRUD operations for the **Account** model.
@@ -671,7 +671,7 @@ export namespace Prisma {
 
 
   export const ModelName: {
-    Issus: 'Issus',
+    Issue: 'Issue',
     Account: 'Account',
     Session: 'Session',
     User: 'User',
@@ -694,81 +694,81 @@ export namespace Prisma {
       omit: GlobalOmitOptions
     }
     meta: {
-      modelProps: "issus" | "account" | "session" | "user" | "verificationToken"
+      modelProps: "issue" | "account" | "session" | "user" | "verificationToken"
       txIsolationLevel: Prisma.TransactionIsolationLevel
     }
     model: {
-      Issus: {
-        payload: Prisma.$IssusPayload<ExtArgs>
-        fields: Prisma.IssusFieldRefs
+      Issue: {
+        payload: Prisma.$IssuePayload<ExtArgs>
+        fields: Prisma.IssueFieldRefs
         operations: {
           findUnique: {
-            args: Prisma.IssusFindUniqueArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$IssusPayload> | null
+            args: Prisma.IssueFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$IssuePayload> | null
           }
           findUniqueOrThrow: {
-            args: Prisma.IssusFindUniqueOrThrowArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$IssusPayload>
+            args: Prisma.IssueFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$IssuePayload>
           }
           findFirst: {
-            args: Prisma.IssusFindFirstArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$IssusPayload> | null
+            args: Prisma.IssueFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$IssuePayload> | null
           }
           findFirstOrThrow: {
-            args: Prisma.IssusFindFirstOrThrowArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$IssusPayload>
+            args: Prisma.IssueFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$IssuePayload>
           }
           findMany: {
-            args: Prisma.IssusFindManyArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$IssusPayload>[]
+            args: Prisma.IssueFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$IssuePayload>[]
           }
           create: {
-            args: Prisma.IssusCreateArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$IssusPayload>
+            args: Prisma.IssueCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$IssuePayload>
           }
           createMany: {
-            args: Prisma.IssusCreateManyArgs<ExtArgs>
+            args: Prisma.IssueCreateManyArgs<ExtArgs>
             result: BatchPayload
           }
           createManyAndReturn: {
-            args: Prisma.IssusCreateManyAndReturnArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$IssusPayload>[]
+            args: Prisma.IssueCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$IssuePayload>[]
           }
           delete: {
-            args: Prisma.IssusDeleteArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$IssusPayload>
+            args: Prisma.IssueDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$IssuePayload>
           }
           update: {
-            args: Prisma.IssusUpdateArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$IssusPayload>
+            args: Prisma.IssueUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$IssuePayload>
           }
           deleteMany: {
-            args: Prisma.IssusDeleteManyArgs<ExtArgs>
+            args: Prisma.IssueDeleteManyArgs<ExtArgs>
             result: BatchPayload
           }
           updateMany: {
-            args: Prisma.IssusUpdateManyArgs<ExtArgs>
+            args: Prisma.IssueUpdateManyArgs<ExtArgs>
             result: BatchPayload
           }
           updateManyAndReturn: {
-            args: Prisma.IssusUpdateManyAndReturnArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$IssusPayload>[]
+            args: Prisma.IssueUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$IssuePayload>[]
           }
           upsert: {
-            args: Prisma.IssusUpsertArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$IssusPayload>
+            args: Prisma.IssueUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$IssuePayload>
           }
           aggregate: {
-            args: Prisma.IssusAggregateArgs<ExtArgs>
-            result: $Utils.Optional<AggregateIssus>
+            args: Prisma.IssueAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateIssue>
           }
           groupBy: {
-            args: Prisma.IssusGroupByArgs<ExtArgs>
-            result: $Utils.Optional<IssusGroupByOutputType>[]
+            args: Prisma.IssueGroupByArgs<ExtArgs>
+            result: $Utils.Optional<IssueGroupByOutputType>[]
           }
           count: {
-            args: Prisma.IssusCountArgs<ExtArgs>
-            result: $Utils.Optional<IssusCountAggregateOutputType> | number
+            args: Prisma.IssueCountArgs<ExtArgs>
+            result: $Utils.Optional<IssueCountAggregateOutputType> | number
           }
         }
       }
@@ -1152,7 +1152,7 @@ export namespace Prisma {
     omit?: Prisma.GlobalOmitConfig
   }
   export type GlobalOmitConfig = {
-    issus?: IssusOmit
+    issue?: IssueOmit
     account?: AccountOmit
     session?: SessionOmit
     user?: UserOmit
@@ -1291,7 +1291,7 @@ export namespace Prisma {
    * UserCountOutputType without action
    */
   export type UserCountOutputTypeCountAssignedIssuesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: IssusWhereInput
+    where?: IssueWhereInput
   }
 
 
@@ -1300,36 +1300,26 @@ export namespace Prisma {
    */
 
   /**
-   * Model Issus
+   * Model Issue
    */
 
-  export type AggregateIssus = {
-    _count: IssusCountAggregateOutputType | null
-    _avg: IssusAvgAggregateOutputType | null
-    _sum: IssusSumAggregateOutputType | null
-    _min: IssusMinAggregateOutputType | null
-    _max: IssusMaxAggregateOutputType | null
+  export type AggregateIssue = {
+    _count: IssueCountAggregateOutputType | null
+    _avg: IssueAvgAggregateOutputType | null
+    _sum: IssueSumAggregateOutputType | null
+    _min: IssueMinAggregateOutputType | null
+    _max: IssueMaxAggregateOutputType | null
   }
 
-  export type IssusAvgAggregateOutputType = {
+  export type IssueAvgAggregateOutputType = {
     id: number | null
   }
 
-  export type IssusSumAggregateOutputType = {
+  export type IssueSumAggregateOutputType = {
     id: number | null
   }
 
-  export type IssusMinAggregateOutputType = {
-    id: number | null
-    title: string | null
-    description: string | null
-    status: $Enums.Status | null
-    createdAt: Date | null
-    updatedt: Date | null
-    assigneToUserId: string | null
-  }
-
-  export type IssusMaxAggregateOutputType = {
+  export type IssueMinAggregateOutputType = {
     id: number | null
     title: string | null
     description: string | null
@@ -1339,7 +1329,17 @@ export namespace Prisma {
     assigneToUserId: string | null
   }
 
-  export type IssusCountAggregateOutputType = {
+  export type IssueMaxAggregateOutputType = {
+    id: number | null
+    title: string | null
+    description: string | null
+    status: $Enums.Status | null
+    createdAt: Date | null
+    updatedt: Date | null
+    assigneToUserId: string | null
+  }
+
+  export type IssueCountAggregateOutputType = {
     id: number
     title: number
     description: number
@@ -1351,25 +1351,15 @@ export namespace Prisma {
   }
 
 
-  export type IssusAvgAggregateInputType = {
+  export type IssueAvgAggregateInputType = {
     id?: true
   }
 
-  export type IssusSumAggregateInputType = {
+  export type IssueSumAggregateInputType = {
     id?: true
   }
 
-  export type IssusMinAggregateInputType = {
-    id?: true
-    title?: true
-    description?: true
-    status?: true
-    createdAt?: true
-    updatedt?: true
-    assigneToUserId?: true
-  }
-
-  export type IssusMaxAggregateInputType = {
+  export type IssueMinAggregateInputType = {
     id?: true
     title?: true
     description?: true
@@ -1379,7 +1369,17 @@ export namespace Prisma {
     assigneToUserId?: true
   }
 
-  export type IssusCountAggregateInputType = {
+  export type IssueMaxAggregateInputType = {
+    id?: true
+    title?: true
+    description?: true
+    status?: true
+    createdAt?: true
+    updatedt?: true
+    assigneToUserId?: true
+  }
+
+  export type IssueCountAggregateInputType = {
     id?: true
     title?: true
     description?: true
@@ -1390,93 +1390,93 @@ export namespace Prisma {
     _all?: true
   }
 
-  export type IssusAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type IssueAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Filter which Issus to aggregate.
+     * Filter which Issue to aggregate.
      */
-    where?: IssusWhereInput
+    where?: IssueWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of Issuses to fetch.
+     * Determine the order of Issues to fetch.
      */
-    orderBy?: IssusOrderByWithRelationInput | IssusOrderByWithRelationInput[]
+    orderBy?: IssueOrderByWithRelationInput | IssueOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
      * Sets the start position
      */
-    cursor?: IssusWhereUniqueInput
+    cursor?: IssueWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` Issuses from the position of the cursor.
+     * Take `±n` Issues from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` Issuses.
+     * Skip the first `n` Issues.
      */
     skip?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
-     * Count returned Issuses
+     * Count returned Issues
     **/
-    _count?: true | IssusCountAggregateInputType
+    _count?: true | IssueCountAggregateInputType
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
      * Select which fields to average
     **/
-    _avg?: IssusAvgAggregateInputType
+    _avg?: IssueAvgAggregateInputType
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
      * Select which fields to sum
     **/
-    _sum?: IssusSumAggregateInputType
+    _sum?: IssueSumAggregateInputType
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
      * Select which fields to find the minimum value
     **/
-    _min?: IssusMinAggregateInputType
+    _min?: IssueMinAggregateInputType
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
      * Select which fields to find the maximum value
     **/
-    _max?: IssusMaxAggregateInputType
+    _max?: IssueMaxAggregateInputType
   }
 
-  export type GetIssusAggregateType<T extends IssusAggregateArgs> = {
-        [P in keyof T & keyof AggregateIssus]: P extends '_count' | 'count'
+  export type GetIssueAggregateType<T extends IssueAggregateArgs> = {
+        [P in keyof T & keyof AggregateIssue]: P extends '_count' | 'count'
       ? T[P] extends true
         ? number
-        : GetScalarType<T[P], AggregateIssus[P]>
-      : GetScalarType<T[P], AggregateIssus[P]>
+        : GetScalarType<T[P], AggregateIssue[P]>
+      : GetScalarType<T[P], AggregateIssue[P]>
   }
 
 
 
 
-  export type IssusGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: IssusWhereInput
-    orderBy?: IssusOrderByWithAggregationInput | IssusOrderByWithAggregationInput[]
-    by: IssusScalarFieldEnum[] | IssusScalarFieldEnum
-    having?: IssusScalarWhereWithAggregatesInput
+  export type IssueGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: IssueWhereInput
+    orderBy?: IssueOrderByWithAggregationInput | IssueOrderByWithAggregationInput[]
+    by: IssueScalarFieldEnum[] | IssueScalarFieldEnum
+    having?: IssueScalarWhereWithAggregatesInput
     take?: number
     skip?: number
-    _count?: IssusCountAggregateInputType | true
-    _avg?: IssusAvgAggregateInputType
-    _sum?: IssusSumAggregateInputType
-    _min?: IssusMinAggregateInputType
-    _max?: IssusMaxAggregateInputType
+    _count?: IssueCountAggregateInputType | true
+    _avg?: IssueAvgAggregateInputType
+    _sum?: IssueSumAggregateInputType
+    _min?: IssueMinAggregateInputType
+    _max?: IssueMaxAggregateInputType
   }
 
-  export type IssusGroupByOutputType = {
+  export type IssueGroupByOutputType = {
     id: number
     title: string
     description: string
@@ -1484,28 +1484,28 @@ export namespace Prisma {
     createdAt: Date
     updatedt: Date
     assigneToUserId: string | null
-    _count: IssusCountAggregateOutputType | null
-    _avg: IssusAvgAggregateOutputType | null
-    _sum: IssusSumAggregateOutputType | null
-    _min: IssusMinAggregateOutputType | null
-    _max: IssusMaxAggregateOutputType | null
+    _count: IssueCountAggregateOutputType | null
+    _avg: IssueAvgAggregateOutputType | null
+    _sum: IssueSumAggregateOutputType | null
+    _min: IssueMinAggregateOutputType | null
+    _max: IssueMaxAggregateOutputType | null
   }
 
-  type GetIssusGroupByPayload<T extends IssusGroupByArgs> = Prisma.PrismaPromise<
+  type GetIssueGroupByPayload<T extends IssueGroupByArgs> = Prisma.PrismaPromise<
     Array<
-      PickEnumerable<IssusGroupByOutputType, T['by']> &
+      PickEnumerable<IssueGroupByOutputType, T['by']> &
         {
-          [P in ((keyof T) & (keyof IssusGroupByOutputType))]: P extends '_count'
+          [P in ((keyof T) & (keyof IssueGroupByOutputType))]: P extends '_count'
             ? T[P] extends boolean
               ? number
-              : GetScalarType<T[P], IssusGroupByOutputType[P]>
-            : GetScalarType<T[P], IssusGroupByOutputType[P]>
+              : GetScalarType<T[P], IssueGroupByOutputType[P]>
+            : GetScalarType<T[P], IssueGroupByOutputType[P]>
         }
       >
     >
 
 
-  export type IssusSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+  export type IssueSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     title?: boolean
     description?: boolean
@@ -1513,10 +1513,10 @@ export namespace Prisma {
     createdAt?: boolean
     updatedt?: boolean
     assigneToUserId?: boolean
-    assigneToUser?: boolean | Issus$assigneToUserArgs<ExtArgs>
-  }, ExtArgs["result"]["issus"]>
+    assigneToUser?: boolean | Issue$assigneToUserArgs<ExtArgs>
+  }, ExtArgs["result"]["issue"]>
 
-  export type IssusSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+  export type IssueSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     title?: boolean
     description?: boolean
@@ -1524,10 +1524,10 @@ export namespace Prisma {
     createdAt?: boolean
     updatedt?: boolean
     assigneToUserId?: boolean
-    assigneToUser?: boolean | Issus$assigneToUserArgs<ExtArgs>
-  }, ExtArgs["result"]["issus"]>
+    assigneToUser?: boolean | Issue$assigneToUserArgs<ExtArgs>
+  }, ExtArgs["result"]["issue"]>
 
-  export type IssusSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+  export type IssueSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     title?: boolean
     description?: boolean
@@ -1535,10 +1535,10 @@ export namespace Prisma {
     createdAt?: boolean
     updatedt?: boolean
     assigneToUserId?: boolean
-    assigneToUser?: boolean | Issus$assigneToUserArgs<ExtArgs>
-  }, ExtArgs["result"]["issus"]>
+    assigneToUser?: boolean | Issue$assigneToUserArgs<ExtArgs>
+  }, ExtArgs["result"]["issue"]>
 
-  export type IssusSelectScalar = {
+  export type IssueSelectScalar = {
     id?: boolean
     title?: boolean
     description?: boolean
@@ -1548,19 +1548,19 @@ export namespace Prisma {
     assigneToUserId?: boolean
   }
 
-  export type IssusOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "title" | "description" | "status" | "createdAt" | "updatedt" | "assigneToUserId", ExtArgs["result"]["issus"]>
-  export type IssusInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    assigneToUser?: boolean | Issus$assigneToUserArgs<ExtArgs>
+  export type IssueOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "title" | "description" | "status" | "createdAt" | "updatedt" | "assigneToUserId", ExtArgs["result"]["issue"]>
+  export type IssueInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    assigneToUser?: boolean | Issue$assigneToUserArgs<ExtArgs>
   }
-  export type IssusIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    assigneToUser?: boolean | Issus$assigneToUserArgs<ExtArgs>
+  export type IssueIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    assigneToUser?: boolean | Issue$assigneToUserArgs<ExtArgs>
   }
-  export type IssusIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    assigneToUser?: boolean | Issus$assigneToUserArgs<ExtArgs>
+  export type IssueIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    assigneToUser?: boolean | Issue$assigneToUserArgs<ExtArgs>
   }
 
-  export type $IssusPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    name: "Issus"
+  export type $IssuePayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "Issue"
     objects: {
       assigneToUser: Prisma.$UserPayload<ExtArgs> | null
     }
@@ -1572,136 +1572,136 @@ export namespace Prisma {
       createdAt: Date
       updatedt: Date
       assigneToUserId: string | null
-    }, ExtArgs["result"]["issus"]>
+    }, ExtArgs["result"]["issue"]>
     composites: {}
   }
 
-  type IssusGetPayload<S extends boolean | null | undefined | IssusDefaultArgs> = $Result.GetResult<Prisma.$IssusPayload, S>
+  type IssueGetPayload<S extends boolean | null | undefined | IssueDefaultArgs> = $Result.GetResult<Prisma.$IssuePayload, S>
 
-  type IssusCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
-    Omit<IssusFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
-      select?: IssusCountAggregateInputType | true
+  type IssueCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<IssueFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: IssueCountAggregateInputType | true
     }
 
-  export interface IssusDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
-    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['Issus'], meta: { name: 'Issus' } }
+  export interface IssueDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['Issue'], meta: { name: 'Issue' } }
     /**
-     * Find zero or one Issus that matches the filter.
-     * @param {IssusFindUniqueArgs} args - Arguments to find a Issus
+     * Find zero or one Issue that matches the filter.
+     * @param {IssueFindUniqueArgs} args - Arguments to find a Issue
      * @example
-     * // Get one Issus
-     * const issus = await prisma.issus.findUnique({
+     * // Get one Issue
+     * const issue = await prisma.issue.findUnique({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      */
-    findUnique<T extends IssusFindUniqueArgs>(args: SelectSubset<T, IssusFindUniqueArgs<ExtArgs>>): Prisma__IssusClient<$Result.GetResult<Prisma.$IssusPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+    findUnique<T extends IssueFindUniqueArgs>(args: SelectSubset<T, IssueFindUniqueArgs<ExtArgs>>): Prisma__IssueClient<$Result.GetResult<Prisma.$IssuePayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Find one Issus that matches the filter or throw an error with `error.code='P2025'`
+     * Find one Issue that matches the filter or throw an error with `error.code='P2025'`
      * if no matches were found.
-     * @param {IssusFindUniqueOrThrowArgs} args - Arguments to find a Issus
+     * @param {IssueFindUniqueOrThrowArgs} args - Arguments to find a Issue
      * @example
-     * // Get one Issus
-     * const issus = await prisma.issus.findUniqueOrThrow({
+     * // Get one Issue
+     * const issue = await prisma.issue.findUniqueOrThrow({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      */
-    findUniqueOrThrow<T extends IssusFindUniqueOrThrowArgs>(args: SelectSubset<T, IssusFindUniqueOrThrowArgs<ExtArgs>>): Prisma__IssusClient<$Result.GetResult<Prisma.$IssusPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    findUniqueOrThrow<T extends IssueFindUniqueOrThrowArgs>(args: SelectSubset<T, IssueFindUniqueOrThrowArgs<ExtArgs>>): Prisma__IssueClient<$Result.GetResult<Prisma.$IssuePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Find the first Issus that matches the filter.
+     * Find the first Issue that matches the filter.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {IssusFindFirstArgs} args - Arguments to find a Issus
+     * @param {IssueFindFirstArgs} args - Arguments to find a Issue
      * @example
-     * // Get one Issus
-     * const issus = await prisma.issus.findFirst({
+     * // Get one Issue
+     * const issue = await prisma.issue.findFirst({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      */
-    findFirst<T extends IssusFindFirstArgs>(args?: SelectSubset<T, IssusFindFirstArgs<ExtArgs>>): Prisma__IssusClient<$Result.GetResult<Prisma.$IssusPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+    findFirst<T extends IssueFindFirstArgs>(args?: SelectSubset<T, IssueFindFirstArgs<ExtArgs>>): Prisma__IssueClient<$Result.GetResult<Prisma.$IssuePayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Find the first Issus that matches the filter or
+     * Find the first Issue that matches the filter or
      * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {IssusFindFirstOrThrowArgs} args - Arguments to find a Issus
+     * @param {IssueFindFirstOrThrowArgs} args - Arguments to find a Issue
      * @example
-     * // Get one Issus
-     * const issus = await prisma.issus.findFirstOrThrow({
+     * // Get one Issue
+     * const issue = await prisma.issue.findFirstOrThrow({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      */
-    findFirstOrThrow<T extends IssusFindFirstOrThrowArgs>(args?: SelectSubset<T, IssusFindFirstOrThrowArgs<ExtArgs>>): Prisma__IssusClient<$Result.GetResult<Prisma.$IssusPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    findFirstOrThrow<T extends IssueFindFirstOrThrowArgs>(args?: SelectSubset<T, IssueFindFirstOrThrowArgs<ExtArgs>>): Prisma__IssueClient<$Result.GetResult<Prisma.$IssuePayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Find zero or more Issuses that matches the filter.
+     * Find zero or more Issues that matches the filter.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {IssusFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @param {IssueFindManyArgs} args - Arguments to filter and select certain fields only.
      * @example
-     * // Get all Issuses
-     * const issuses = await prisma.issus.findMany()
+     * // Get all Issues
+     * const issues = await prisma.issue.findMany()
      * 
-     * // Get first 10 Issuses
-     * const issuses = await prisma.issus.findMany({ take: 10 })
+     * // Get first 10 Issues
+     * const issues = await prisma.issue.findMany({ take: 10 })
      * 
      * // Only select the `id`
-     * const issusWithIdOnly = await prisma.issus.findMany({ select: { id: true } })
+     * const issueWithIdOnly = await prisma.issue.findMany({ select: { id: true } })
      * 
      */
-    findMany<T extends IssusFindManyArgs>(args?: SelectSubset<T, IssusFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$IssusPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+    findMany<T extends IssueFindManyArgs>(args?: SelectSubset<T, IssueFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$IssuePayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
 
     /**
-     * Create a Issus.
-     * @param {IssusCreateArgs} args - Arguments to create a Issus.
+     * Create a Issue.
+     * @param {IssueCreateArgs} args - Arguments to create a Issue.
      * @example
-     * // Create one Issus
-     * const Issus = await prisma.issus.create({
+     * // Create one Issue
+     * const Issue = await prisma.issue.create({
      *   data: {
-     *     // ... data to create a Issus
+     *     // ... data to create a Issue
      *   }
      * })
      * 
      */
-    create<T extends IssusCreateArgs>(args: SelectSubset<T, IssusCreateArgs<ExtArgs>>): Prisma__IssusClient<$Result.GetResult<Prisma.$IssusPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    create<T extends IssueCreateArgs>(args: SelectSubset<T, IssueCreateArgs<ExtArgs>>): Prisma__IssueClient<$Result.GetResult<Prisma.$IssuePayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Create many Issuses.
-     * @param {IssusCreateManyArgs} args - Arguments to create many Issuses.
+     * Create many Issues.
+     * @param {IssueCreateManyArgs} args - Arguments to create many Issues.
      * @example
-     * // Create many Issuses
-     * const issus = await prisma.issus.createMany({
+     * // Create many Issues
+     * const issue = await prisma.issue.createMany({
      *   data: [
      *     // ... provide data here
      *   ]
      * })
      *     
      */
-    createMany<T extends IssusCreateManyArgs>(args?: SelectSubset<T, IssusCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+    createMany<T extends IssueCreateManyArgs>(args?: SelectSubset<T, IssueCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
 
     /**
-     * Create many Issuses and returns the data saved in the database.
-     * @param {IssusCreateManyAndReturnArgs} args - Arguments to create many Issuses.
+     * Create many Issues and returns the data saved in the database.
+     * @param {IssueCreateManyAndReturnArgs} args - Arguments to create many Issues.
      * @example
-     * // Create many Issuses
-     * const issus = await prisma.issus.createManyAndReturn({
+     * // Create many Issues
+     * const issue = await prisma.issue.createManyAndReturn({
      *   data: [
      *     // ... provide data here
      *   ]
      * })
      * 
-     * // Create many Issuses and only return the `id`
-     * const issusWithIdOnly = await prisma.issus.createManyAndReturn({
+     * // Create many Issues and only return the `id`
+     * const issueWithIdOnly = await prisma.issue.createManyAndReturn({
      *   select: { id: true },
      *   data: [
      *     // ... provide data here
@@ -1711,28 +1711,28 @@ export namespace Prisma {
      * Read more here: https://pris.ly/d/null-undefined
      * 
      */
-    createManyAndReturn<T extends IssusCreateManyAndReturnArgs>(args?: SelectSubset<T, IssusCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$IssusPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+    createManyAndReturn<T extends IssueCreateManyAndReturnArgs>(args?: SelectSubset<T, IssueCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$IssuePayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
 
     /**
-     * Delete a Issus.
-     * @param {IssusDeleteArgs} args - Arguments to delete one Issus.
+     * Delete a Issue.
+     * @param {IssueDeleteArgs} args - Arguments to delete one Issue.
      * @example
-     * // Delete one Issus
-     * const Issus = await prisma.issus.delete({
+     * // Delete one Issue
+     * const Issue = await prisma.issue.delete({
      *   where: {
-     *     // ... filter to delete one Issus
+     *     // ... filter to delete one Issue
      *   }
      * })
      * 
      */
-    delete<T extends IssusDeleteArgs>(args: SelectSubset<T, IssusDeleteArgs<ExtArgs>>): Prisma__IssusClient<$Result.GetResult<Prisma.$IssusPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    delete<T extends IssueDeleteArgs>(args: SelectSubset<T, IssueDeleteArgs<ExtArgs>>): Prisma__IssueClient<$Result.GetResult<Prisma.$IssuePayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Update one Issus.
-     * @param {IssusUpdateArgs} args - Arguments to update one Issus.
+     * Update one Issue.
+     * @param {IssueUpdateArgs} args - Arguments to update one Issue.
      * @example
-     * // Update one Issus
-     * const issus = await prisma.issus.update({
+     * // Update one Issue
+     * const issue = await prisma.issue.update({
      *   where: {
      *     // ... provide filter here
      *   },
@@ -1742,30 +1742,30 @@ export namespace Prisma {
      * })
      * 
      */
-    update<T extends IssusUpdateArgs>(args: SelectSubset<T, IssusUpdateArgs<ExtArgs>>): Prisma__IssusClient<$Result.GetResult<Prisma.$IssusPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    update<T extends IssueUpdateArgs>(args: SelectSubset<T, IssueUpdateArgs<ExtArgs>>): Prisma__IssueClient<$Result.GetResult<Prisma.$IssuePayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Delete zero or more Issuses.
-     * @param {IssusDeleteManyArgs} args - Arguments to filter Issuses to delete.
+     * Delete zero or more Issues.
+     * @param {IssueDeleteManyArgs} args - Arguments to filter Issues to delete.
      * @example
-     * // Delete a few Issuses
-     * const { count } = await prisma.issus.deleteMany({
+     * // Delete a few Issues
+     * const { count } = await prisma.issue.deleteMany({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      * 
      */
-    deleteMany<T extends IssusDeleteManyArgs>(args?: SelectSubset<T, IssusDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+    deleteMany<T extends IssueDeleteManyArgs>(args?: SelectSubset<T, IssueDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
 
     /**
-     * Update zero or more Issuses.
+     * Update zero or more Issues.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {IssusUpdateManyArgs} args - Arguments to update one or more rows.
+     * @param {IssueUpdateManyArgs} args - Arguments to update one or more rows.
      * @example
-     * // Update many Issuses
-     * const issus = await prisma.issus.updateMany({
+     * // Update many Issues
+     * const issue = await prisma.issue.updateMany({
      *   where: {
      *     // ... provide filter here
      *   },
@@ -1775,14 +1775,14 @@ export namespace Prisma {
      * })
      * 
      */
-    updateMany<T extends IssusUpdateManyArgs>(args: SelectSubset<T, IssusUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+    updateMany<T extends IssueUpdateManyArgs>(args: SelectSubset<T, IssueUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
 
     /**
-     * Update zero or more Issuses and returns the data updated in the database.
-     * @param {IssusUpdateManyAndReturnArgs} args - Arguments to update many Issuses.
+     * Update zero or more Issues and returns the data updated in the database.
+     * @param {IssueUpdateManyAndReturnArgs} args - Arguments to update many Issues.
      * @example
-     * // Update many Issuses
-     * const issus = await prisma.issus.updateManyAndReturn({
+     * // Update many Issues
+     * const issue = await prisma.issue.updateManyAndReturn({
      *   where: {
      *     // ... provide filter here
      *   },
@@ -1791,8 +1791,8 @@ export namespace Prisma {
      *   ]
      * })
      * 
-     * // Update zero or more Issuses and only return the `id`
-     * const issusWithIdOnly = await prisma.issus.updateManyAndReturn({
+     * // Update zero or more Issues and only return the `id`
+     * const issueWithIdOnly = await prisma.issue.updateManyAndReturn({
      *   select: { id: true },
      *   where: {
      *     // ... provide filter here
@@ -1805,56 +1805,56 @@ export namespace Prisma {
      * Read more here: https://pris.ly/d/null-undefined
      * 
      */
-    updateManyAndReturn<T extends IssusUpdateManyAndReturnArgs>(args: SelectSubset<T, IssusUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$IssusPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+    updateManyAndReturn<T extends IssueUpdateManyAndReturnArgs>(args: SelectSubset<T, IssueUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$IssuePayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
 
     /**
-     * Create or update one Issus.
-     * @param {IssusUpsertArgs} args - Arguments to update or create a Issus.
+     * Create or update one Issue.
+     * @param {IssueUpsertArgs} args - Arguments to update or create a Issue.
      * @example
-     * // Update or create a Issus
-     * const issus = await prisma.issus.upsert({
+     * // Update or create a Issue
+     * const issue = await prisma.issue.upsert({
      *   create: {
-     *     // ... data to create a Issus
+     *     // ... data to create a Issue
      *   },
      *   update: {
      *     // ... in case it already exists, update
      *   },
      *   where: {
-     *     // ... the filter for the Issus we want to update
+     *     // ... the filter for the Issue we want to update
      *   }
      * })
      */
-    upsert<T extends IssusUpsertArgs>(args: SelectSubset<T, IssusUpsertArgs<ExtArgs>>): Prisma__IssusClient<$Result.GetResult<Prisma.$IssusPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    upsert<T extends IssueUpsertArgs>(args: SelectSubset<T, IssueUpsertArgs<ExtArgs>>): Prisma__IssueClient<$Result.GetResult<Prisma.$IssuePayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
 
     /**
-     * Count the number of Issuses.
+     * Count the number of Issues.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {IssusCountArgs} args - Arguments to filter Issuses to count.
+     * @param {IssueCountArgs} args - Arguments to filter Issues to count.
      * @example
-     * // Count the number of Issuses
-     * const count = await prisma.issus.count({
+     * // Count the number of Issues
+     * const count = await prisma.issue.count({
      *   where: {
-     *     // ... the filter for the Issuses we want to count
+     *     // ... the filter for the Issues we want to count
      *   }
      * })
     **/
-    count<T extends IssusCountArgs>(
-      args?: Subset<T, IssusCountArgs>,
+    count<T extends IssueCountArgs>(
+      args?: Subset<T, IssueCountArgs>,
     ): Prisma.PrismaPromise<
       T extends $Utils.Record<'select', any>
         ? T['select'] extends true
           ? number
-          : GetScalarType<T['select'], IssusCountAggregateOutputType>
+          : GetScalarType<T['select'], IssueCountAggregateOutputType>
         : number
     >
 
     /**
-     * Allows you to perform aggregations operations on a Issus.
+     * Allows you to perform aggregations operations on a Issue.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {IssusAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @param {IssueAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
      * @example
      * // Ordered by age ascending
      * // Where email contains prisma.io
@@ -1874,13 +1874,13 @@ export namespace Prisma {
      *   take: 10,
      * })
     **/
-    aggregate<T extends IssusAggregateArgs>(args: Subset<T, IssusAggregateArgs>): Prisma.PrismaPromise<GetIssusAggregateType<T>>
+    aggregate<T extends IssueAggregateArgs>(args: Subset<T, IssueAggregateArgs>): Prisma.PrismaPromise<GetIssueAggregateType<T>>
 
     /**
-     * Group by Issus.
+     * Group by Issue.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {IssusGroupByArgs} args - Group by arguments.
+     * @param {IssueGroupByArgs} args - Group by arguments.
      * @example
      * // Group by city, order by createdAt, get count
      * const result = await prisma.user.groupBy({
@@ -1895,14 +1895,14 @@ export namespace Prisma {
      * 
     **/
     groupBy<
-      T extends IssusGroupByArgs,
+      T extends IssueGroupByArgs,
       HasSelectOrTake extends Or<
         Extends<'skip', Keys<T>>,
         Extends<'take', Keys<T>>
       >,
       OrderByArg extends True extends HasSelectOrTake
-        ? { orderBy: IssusGroupByArgs['orderBy'] }
-        : { orderBy?: IssusGroupByArgs['orderBy'] },
+        ? { orderBy: IssueGroupByArgs['orderBy'] }
+        : { orderBy?: IssueGroupByArgs['orderBy'] },
       OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
       ByFields extends MaybeTupleToUnion<T['by']>,
       ByValid extends Has<ByFields, OrderFields>,
@@ -1951,22 +1951,22 @@ export namespace Prisma {
             ? never
             : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
         }[OrderFields]
-    >(args: SubsetIntersection<T, IssusGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetIssusGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+    >(args: SubsetIntersection<T, IssueGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetIssueGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
   /**
-   * Fields of the Issus model
+   * Fields of the Issue model
    */
-  readonly fields: IssusFieldRefs;
+  readonly fields: IssueFieldRefs;
   }
 
   /**
-   * The delegate class that acts as a "Promise-like" for Issus.
+   * The delegate class that acts as a "Promise-like" for Issue.
    * Why is this prefixed with `Prisma__`?
    * Because we want to prevent naming conflicts as mentioned in
    * https://github.com/prisma/prisma-client-js/issues/707
    */
-  export interface Prisma__IssusClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+  export interface Prisma__IssueClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
-    assigneToUser<T extends Issus$assigneToUserArgs<ExtArgs> = {}>(args?: Subset<T, Issus$assigneToUserArgs<ExtArgs>>): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+    assigneToUser<T extends Issue$assigneToUserArgs<ExtArgs> = {}>(args?: Subset<T, Issue$assigneToUserArgs<ExtArgs>>): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -1993,415 +1993,415 @@ export namespace Prisma {
 
 
   /**
-   * Fields of the Issus model
+   * Fields of the Issue model
    */
-  interface IssusFieldRefs {
-    readonly id: FieldRef<"Issus", 'Int'>
-    readonly title: FieldRef<"Issus", 'String'>
-    readonly description: FieldRef<"Issus", 'String'>
-    readonly status: FieldRef<"Issus", 'Status'>
-    readonly createdAt: FieldRef<"Issus", 'DateTime'>
-    readonly updatedt: FieldRef<"Issus", 'DateTime'>
-    readonly assigneToUserId: FieldRef<"Issus", 'String'>
+  interface IssueFieldRefs {
+    readonly id: FieldRef<"Issue", 'Int'>
+    readonly title: FieldRef<"Issue", 'String'>
+    readonly description: FieldRef<"Issue", 'String'>
+    readonly status: FieldRef<"Issue", 'Status'>
+    readonly createdAt: FieldRef<"Issue", 'DateTime'>
+    readonly updatedt: FieldRef<"Issue", 'DateTime'>
+    readonly assigneToUserId: FieldRef<"Issue", 'String'>
   }
     
 
   // Custom InputTypes
   /**
-   * Issus findUnique
+   * Issue findUnique
    */
-  export type IssusFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type IssueFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Issus
+     * Select specific fields to fetch from the Issue
      */
-    select?: IssusSelect<ExtArgs> | null
+    select?: IssueSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the Issus
+     * Omit specific fields from the Issue
      */
-    omit?: IssusOmit<ExtArgs> | null
+    omit?: IssueOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: IssusInclude<ExtArgs> | null
+    include?: IssueInclude<ExtArgs> | null
     /**
-     * Filter, which Issus to fetch.
+     * Filter, which Issue to fetch.
      */
-    where: IssusWhereUniqueInput
+    where: IssueWhereUniqueInput
   }
 
   /**
-   * Issus findUniqueOrThrow
+   * Issue findUniqueOrThrow
    */
-  export type IssusFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type IssueFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Issus
+     * Select specific fields to fetch from the Issue
      */
-    select?: IssusSelect<ExtArgs> | null
+    select?: IssueSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the Issus
+     * Omit specific fields from the Issue
      */
-    omit?: IssusOmit<ExtArgs> | null
+    omit?: IssueOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: IssusInclude<ExtArgs> | null
+    include?: IssueInclude<ExtArgs> | null
     /**
-     * Filter, which Issus to fetch.
+     * Filter, which Issue to fetch.
      */
-    where: IssusWhereUniqueInput
+    where: IssueWhereUniqueInput
   }
 
   /**
-   * Issus findFirst
+   * Issue findFirst
    */
-  export type IssusFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type IssueFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Issus
+     * Select specific fields to fetch from the Issue
      */
-    select?: IssusSelect<ExtArgs> | null
+    select?: IssueSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the Issus
+     * Omit specific fields from the Issue
      */
-    omit?: IssusOmit<ExtArgs> | null
+    omit?: IssueOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: IssusInclude<ExtArgs> | null
+    include?: IssueInclude<ExtArgs> | null
     /**
-     * Filter, which Issus to fetch.
+     * Filter, which Issue to fetch.
      */
-    where?: IssusWhereInput
+    where?: IssueWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of Issuses to fetch.
+     * Determine the order of Issues to fetch.
      */
-    orderBy?: IssusOrderByWithRelationInput | IssusOrderByWithRelationInput[]
+    orderBy?: IssueOrderByWithRelationInput | IssueOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
-     * Sets the position for searching for Issuses.
+     * Sets the position for searching for Issues.
      */
-    cursor?: IssusWhereUniqueInput
+    cursor?: IssueWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` Issuses from the position of the cursor.
+     * Take `±n` Issues from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` Issuses.
+     * Skip the first `n` Issues.
      */
     skip?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
      * 
-     * Filter by unique combinations of Issuses.
+     * Filter by unique combinations of Issues.
      */
-    distinct?: IssusScalarFieldEnum | IssusScalarFieldEnum[]
+    distinct?: IssueScalarFieldEnum | IssueScalarFieldEnum[]
   }
 
   /**
-   * Issus findFirstOrThrow
+   * Issue findFirstOrThrow
    */
-  export type IssusFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type IssueFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Issus
+     * Select specific fields to fetch from the Issue
      */
-    select?: IssusSelect<ExtArgs> | null
+    select?: IssueSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the Issus
+     * Omit specific fields from the Issue
      */
-    omit?: IssusOmit<ExtArgs> | null
+    omit?: IssueOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: IssusInclude<ExtArgs> | null
+    include?: IssueInclude<ExtArgs> | null
     /**
-     * Filter, which Issus to fetch.
+     * Filter, which Issue to fetch.
      */
-    where?: IssusWhereInput
+    where?: IssueWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of Issuses to fetch.
+     * Determine the order of Issues to fetch.
      */
-    orderBy?: IssusOrderByWithRelationInput | IssusOrderByWithRelationInput[]
+    orderBy?: IssueOrderByWithRelationInput | IssueOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
-     * Sets the position for searching for Issuses.
+     * Sets the position for searching for Issues.
      */
-    cursor?: IssusWhereUniqueInput
+    cursor?: IssueWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` Issuses from the position of the cursor.
+     * Take `±n` Issues from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` Issuses.
+     * Skip the first `n` Issues.
      */
     skip?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
      * 
-     * Filter by unique combinations of Issuses.
+     * Filter by unique combinations of Issues.
      */
-    distinct?: IssusScalarFieldEnum | IssusScalarFieldEnum[]
+    distinct?: IssueScalarFieldEnum | IssueScalarFieldEnum[]
   }
 
   /**
-   * Issus findMany
+   * Issue findMany
    */
-  export type IssusFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type IssueFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Issus
+     * Select specific fields to fetch from the Issue
      */
-    select?: IssusSelect<ExtArgs> | null
+    select?: IssueSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the Issus
+     * Omit specific fields from the Issue
      */
-    omit?: IssusOmit<ExtArgs> | null
+    omit?: IssueOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: IssusInclude<ExtArgs> | null
+    include?: IssueInclude<ExtArgs> | null
     /**
-     * Filter, which Issuses to fetch.
+     * Filter, which Issues to fetch.
      */
-    where?: IssusWhereInput
+    where?: IssueWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of Issuses to fetch.
+     * Determine the order of Issues to fetch.
      */
-    orderBy?: IssusOrderByWithRelationInput | IssusOrderByWithRelationInput[]
+    orderBy?: IssueOrderByWithRelationInput | IssueOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
-     * Sets the position for listing Issuses.
+     * Sets the position for listing Issues.
      */
-    cursor?: IssusWhereUniqueInput
+    cursor?: IssueWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` Issuses from the position of the cursor.
+     * Take `±n` Issues from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` Issuses.
+     * Skip the first `n` Issues.
      */
     skip?: number
-    distinct?: IssusScalarFieldEnum | IssusScalarFieldEnum[]
+    distinct?: IssueScalarFieldEnum | IssueScalarFieldEnum[]
   }
 
   /**
-   * Issus create
+   * Issue create
    */
-  export type IssusCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type IssueCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Issus
+     * Select specific fields to fetch from the Issue
      */
-    select?: IssusSelect<ExtArgs> | null
+    select?: IssueSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the Issus
+     * Omit specific fields from the Issue
      */
-    omit?: IssusOmit<ExtArgs> | null
+    omit?: IssueOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: IssusInclude<ExtArgs> | null
+    include?: IssueInclude<ExtArgs> | null
     /**
-     * The data needed to create a Issus.
+     * The data needed to create a Issue.
      */
-    data: XOR<IssusCreateInput, IssusUncheckedCreateInput>
+    data: XOR<IssueCreateInput, IssueUncheckedCreateInput>
   }
 
   /**
-   * Issus createMany
+   * Issue createMany
    */
-  export type IssusCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type IssueCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * The data used to create many Issuses.
+     * The data used to create many Issues.
      */
-    data: IssusCreateManyInput | IssusCreateManyInput[]
+    data: IssueCreateManyInput | IssueCreateManyInput[]
     skipDuplicates?: boolean
   }
 
   /**
-   * Issus createManyAndReturn
+   * Issue createManyAndReturn
    */
-  export type IssusCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type IssueCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Issus
+     * Select specific fields to fetch from the Issue
      */
-    select?: IssusSelectCreateManyAndReturn<ExtArgs> | null
+    select?: IssueSelectCreateManyAndReturn<ExtArgs> | null
     /**
-     * Omit specific fields from the Issus
+     * Omit specific fields from the Issue
      */
-    omit?: IssusOmit<ExtArgs> | null
+    omit?: IssueOmit<ExtArgs> | null
     /**
-     * The data used to create many Issuses.
+     * The data used to create many Issues.
      */
-    data: IssusCreateManyInput | IssusCreateManyInput[]
+    data: IssueCreateManyInput | IssueCreateManyInput[]
     skipDuplicates?: boolean
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: IssusIncludeCreateManyAndReturn<ExtArgs> | null
+    include?: IssueIncludeCreateManyAndReturn<ExtArgs> | null
   }
 
   /**
-   * Issus update
+   * Issue update
    */
-  export type IssusUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type IssueUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Issus
+     * Select specific fields to fetch from the Issue
      */
-    select?: IssusSelect<ExtArgs> | null
+    select?: IssueSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the Issus
+     * Omit specific fields from the Issue
      */
-    omit?: IssusOmit<ExtArgs> | null
+    omit?: IssueOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: IssusInclude<ExtArgs> | null
+    include?: IssueInclude<ExtArgs> | null
     /**
-     * The data needed to update a Issus.
+     * The data needed to update a Issue.
      */
-    data: XOR<IssusUpdateInput, IssusUncheckedUpdateInput>
+    data: XOR<IssueUpdateInput, IssueUncheckedUpdateInput>
     /**
-     * Choose, which Issus to update.
+     * Choose, which Issue to update.
      */
-    where: IssusWhereUniqueInput
+    where: IssueWhereUniqueInput
   }
 
   /**
-   * Issus updateMany
+   * Issue updateMany
    */
-  export type IssusUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type IssueUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * The data used to update Issuses.
+     * The data used to update Issues.
      */
-    data: XOR<IssusUpdateManyMutationInput, IssusUncheckedUpdateManyInput>
+    data: XOR<IssueUpdateManyMutationInput, IssueUncheckedUpdateManyInput>
     /**
-     * Filter which Issuses to update
+     * Filter which Issues to update
      */
-    where?: IssusWhereInput
+    where?: IssueWhereInput
     /**
-     * Limit how many Issuses to update.
+     * Limit how many Issues to update.
      */
     limit?: number
   }
 
   /**
-   * Issus updateManyAndReturn
+   * Issue updateManyAndReturn
    */
-  export type IssusUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type IssueUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Issus
+     * Select specific fields to fetch from the Issue
      */
-    select?: IssusSelectUpdateManyAndReturn<ExtArgs> | null
+    select?: IssueSelectUpdateManyAndReturn<ExtArgs> | null
     /**
-     * Omit specific fields from the Issus
+     * Omit specific fields from the Issue
      */
-    omit?: IssusOmit<ExtArgs> | null
+    omit?: IssueOmit<ExtArgs> | null
     /**
-     * The data used to update Issuses.
+     * The data used to update Issues.
      */
-    data: XOR<IssusUpdateManyMutationInput, IssusUncheckedUpdateManyInput>
+    data: XOR<IssueUpdateManyMutationInput, IssueUncheckedUpdateManyInput>
     /**
-     * Filter which Issuses to update
+     * Filter which Issues to update
      */
-    where?: IssusWhereInput
+    where?: IssueWhereInput
     /**
-     * Limit how many Issuses to update.
+     * Limit how many Issues to update.
      */
     limit?: number
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: IssusIncludeUpdateManyAndReturn<ExtArgs> | null
+    include?: IssueIncludeUpdateManyAndReturn<ExtArgs> | null
   }
 
   /**
-   * Issus upsert
+   * Issue upsert
    */
-  export type IssusUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type IssueUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Issus
+     * Select specific fields to fetch from the Issue
      */
-    select?: IssusSelect<ExtArgs> | null
+    select?: IssueSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the Issus
+     * Omit specific fields from the Issue
      */
-    omit?: IssusOmit<ExtArgs> | null
+    omit?: IssueOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: IssusInclude<ExtArgs> | null
+    include?: IssueInclude<ExtArgs> | null
     /**
-     * The filter to search for the Issus to update in case it exists.
+     * The filter to search for the Issue to update in case it exists.
      */
-    where: IssusWhereUniqueInput
+    where: IssueWhereUniqueInput
     /**
-     * In case the Issus found by the `where` argument doesn't exist, create a new Issus with this data.
+     * In case the Issue found by the `where` argument doesn't exist, create a new Issue with this data.
      */
-    create: XOR<IssusCreateInput, IssusUncheckedCreateInput>
+    create: XOR<IssueCreateInput, IssueUncheckedCreateInput>
     /**
-     * In case the Issus was found with the provided `where` argument, update it with this data.
+     * In case the Issue was found with the provided `where` argument, update it with this data.
      */
-    update: XOR<IssusUpdateInput, IssusUncheckedUpdateInput>
+    update: XOR<IssueUpdateInput, IssueUncheckedUpdateInput>
   }
 
   /**
-   * Issus delete
+   * Issue delete
    */
-  export type IssusDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type IssueDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Issus
+     * Select specific fields to fetch from the Issue
      */
-    select?: IssusSelect<ExtArgs> | null
+    select?: IssueSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the Issus
+     * Omit specific fields from the Issue
      */
-    omit?: IssusOmit<ExtArgs> | null
+    omit?: IssueOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: IssusInclude<ExtArgs> | null
+    include?: IssueInclude<ExtArgs> | null
     /**
-     * Filter which Issus to delete.
+     * Filter which Issue to delete.
      */
-    where: IssusWhereUniqueInput
+    where: IssueWhereUniqueInput
   }
 
   /**
-   * Issus deleteMany
+   * Issue deleteMany
    */
-  export type IssusDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type IssueDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Filter which Issuses to delete
+     * Filter which Issues to delete
      */
-    where?: IssusWhereInput
+    where?: IssueWhereInput
     /**
-     * Limit how many Issuses to delete.
+     * Limit how many Issues to delete.
      */
     limit?: number
   }
 
   /**
-   * Issus.assigneToUser
+   * Issue.assigneToUser
    */
-  export type Issus$assigneToUserArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type Issue$assigneToUserArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
      * Select specific fields to fetch from the User
      */
@@ -2418,21 +2418,21 @@ export namespace Prisma {
   }
 
   /**
-   * Issus without action
+   * Issue without action
    */
-  export type IssusDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type IssueDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Issus
+     * Select specific fields to fetch from the Issue
      */
-    select?: IssusSelect<ExtArgs> | null
+    select?: IssueSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the Issus
+     * Omit specific fields from the Issue
      */
-    omit?: IssusOmit<ExtArgs> | null
+    omit?: IssueOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: IssusInclude<ExtArgs> | null
+    include?: IssueInclude<ExtArgs> | null
   }
 
 
@@ -4873,7 +4873,7 @@ export namespace Prisma {
     objects: {
       accounts: Prisma.$AccountPayload<ExtArgs>[]
       sessions: Prisma.$SessionPayload<ExtArgs>[]
-      assignedIssues: Prisma.$IssusPayload<ExtArgs>[]
+      assignedIssues: Prisma.$IssuePayload<ExtArgs>[]
     }
     scalars: $Extensions.GetPayloadResult<{
       id: string
@@ -5277,7 +5277,7 @@ export namespace Prisma {
     readonly [Symbol.toStringTag]: "PrismaPromise"
     accounts<T extends User$accountsArgs<ExtArgs> = {}>(args?: Subset<T, User$accountsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$AccountPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     sessions<T extends User$sessionsArgs<ExtArgs> = {}>(args?: Subset<T, User$sessionsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$SessionPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
-    assignedIssues<T extends User$assignedIssuesArgs<ExtArgs> = {}>(args?: Subset<T, User$assignedIssuesArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$IssusPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    assignedIssues<T extends User$assignedIssuesArgs<ExtArgs> = {}>(args?: Subset<T, User$assignedIssuesArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$IssuePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -5752,23 +5752,23 @@ export namespace Prisma {
    */
   export type User$assignedIssuesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Issus
+     * Select specific fields to fetch from the Issue
      */
-    select?: IssusSelect<ExtArgs> | null
+    select?: IssueSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the Issus
+     * Omit specific fields from the Issue
      */
-    omit?: IssusOmit<ExtArgs> | null
+    omit?: IssueOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: IssusInclude<ExtArgs> | null
-    where?: IssusWhereInput
-    orderBy?: IssusOrderByWithRelationInput | IssusOrderByWithRelationInput[]
-    cursor?: IssusWhereUniqueInput
+    include?: IssueInclude<ExtArgs> | null
+    where?: IssueWhereInput
+    orderBy?: IssueOrderByWithRelationInput | IssueOrderByWithRelationInput[]
+    cursor?: IssueWhereUniqueInput
     take?: number
     skip?: number
-    distinct?: IssusScalarFieldEnum | IssusScalarFieldEnum[]
+    distinct?: IssueScalarFieldEnum | IssueScalarFieldEnum[]
   }
 
   /**
@@ -6773,7 +6773,7 @@ export namespace Prisma {
   export type TransactionIsolationLevel = (typeof TransactionIsolationLevel)[keyof typeof TransactionIsolationLevel]
 
 
-  export const IssusScalarFieldEnum: {
+  export const IssueScalarFieldEnum: {
     id: 'id',
     title: 'title',
     description: 'description',
@@ -6783,7 +6783,7 @@ export namespace Prisma {
     assigneToUserId: 'assigneToUserId'
   };
 
-  export type IssusScalarFieldEnum = (typeof IssusScalarFieldEnum)[keyof typeof IssusScalarFieldEnum]
+  export type IssueScalarFieldEnum = (typeof IssueScalarFieldEnum)[keyof typeof IssueScalarFieldEnum]
 
 
   export const AccountScalarFieldEnum: {
@@ -6936,21 +6936,21 @@ export namespace Prisma {
    */
 
 
-  export type IssusWhereInput = {
-    AND?: IssusWhereInput | IssusWhereInput[]
-    OR?: IssusWhereInput[]
-    NOT?: IssusWhereInput | IssusWhereInput[]
-    id?: IntFilter<"Issus"> | number
-    title?: StringFilter<"Issus"> | string
-    description?: StringFilter<"Issus"> | string
-    status?: EnumStatusFilter<"Issus"> | $Enums.Status
-    createdAt?: DateTimeFilter<"Issus"> | Date | string
-    updatedt?: DateTimeFilter<"Issus"> | Date | string
-    assigneToUserId?: StringNullableFilter<"Issus"> | string | null
+  export type IssueWhereInput = {
+    AND?: IssueWhereInput | IssueWhereInput[]
+    OR?: IssueWhereInput[]
+    NOT?: IssueWhereInput | IssueWhereInput[]
+    id?: IntFilter<"Issue"> | number
+    title?: StringFilter<"Issue"> | string
+    description?: StringFilter<"Issue"> | string
+    status?: EnumStatusFilter<"Issue"> | $Enums.Status
+    createdAt?: DateTimeFilter<"Issue"> | Date | string
+    updatedt?: DateTimeFilter<"Issue"> | Date | string
+    assigneToUserId?: StringNullableFilter<"Issue"> | string | null
     assigneToUser?: XOR<UserNullableScalarRelationFilter, UserWhereInput> | null
   }
 
-  export type IssusOrderByWithRelationInput = {
+  export type IssueOrderByWithRelationInput = {
     id?: SortOrder
     title?: SortOrder
     description?: SortOrder
@@ -6961,21 +6961,21 @@ export namespace Prisma {
     assigneToUser?: UserOrderByWithRelationInput
   }
 
-  export type IssusWhereUniqueInput = Prisma.AtLeast<{
+  export type IssueWhereUniqueInput = Prisma.AtLeast<{
     id?: number
-    AND?: IssusWhereInput | IssusWhereInput[]
-    OR?: IssusWhereInput[]
-    NOT?: IssusWhereInput | IssusWhereInput[]
-    title?: StringFilter<"Issus"> | string
-    description?: StringFilter<"Issus"> | string
-    status?: EnumStatusFilter<"Issus"> | $Enums.Status
-    createdAt?: DateTimeFilter<"Issus"> | Date | string
-    updatedt?: DateTimeFilter<"Issus"> | Date | string
-    assigneToUserId?: StringNullableFilter<"Issus"> | string | null
+    AND?: IssueWhereInput | IssueWhereInput[]
+    OR?: IssueWhereInput[]
+    NOT?: IssueWhereInput | IssueWhereInput[]
+    title?: StringFilter<"Issue"> | string
+    description?: StringFilter<"Issue"> | string
+    status?: EnumStatusFilter<"Issue"> | $Enums.Status
+    createdAt?: DateTimeFilter<"Issue"> | Date | string
+    updatedt?: DateTimeFilter<"Issue"> | Date | string
+    assigneToUserId?: StringNullableFilter<"Issue"> | string | null
     assigneToUser?: XOR<UserNullableScalarRelationFilter, UserWhereInput> | null
   }, "id">
 
-  export type IssusOrderByWithAggregationInput = {
+  export type IssueOrderByWithAggregationInput = {
     id?: SortOrder
     title?: SortOrder
     description?: SortOrder
@@ -6983,24 +6983,24 @@ export namespace Prisma {
     createdAt?: SortOrder
     updatedt?: SortOrder
     assigneToUserId?: SortOrderInput | SortOrder
-    _count?: IssusCountOrderByAggregateInput
-    _avg?: IssusAvgOrderByAggregateInput
-    _max?: IssusMaxOrderByAggregateInput
-    _min?: IssusMinOrderByAggregateInput
-    _sum?: IssusSumOrderByAggregateInput
+    _count?: IssueCountOrderByAggregateInput
+    _avg?: IssueAvgOrderByAggregateInput
+    _max?: IssueMaxOrderByAggregateInput
+    _min?: IssueMinOrderByAggregateInput
+    _sum?: IssueSumOrderByAggregateInput
   }
 
-  export type IssusScalarWhereWithAggregatesInput = {
-    AND?: IssusScalarWhereWithAggregatesInput | IssusScalarWhereWithAggregatesInput[]
-    OR?: IssusScalarWhereWithAggregatesInput[]
-    NOT?: IssusScalarWhereWithAggregatesInput | IssusScalarWhereWithAggregatesInput[]
-    id?: IntWithAggregatesFilter<"Issus"> | number
-    title?: StringWithAggregatesFilter<"Issus"> | string
-    description?: StringWithAggregatesFilter<"Issus"> | string
-    status?: EnumStatusWithAggregatesFilter<"Issus"> | $Enums.Status
-    createdAt?: DateTimeWithAggregatesFilter<"Issus"> | Date | string
-    updatedt?: DateTimeWithAggregatesFilter<"Issus"> | Date | string
-    assigneToUserId?: StringNullableWithAggregatesFilter<"Issus"> | string | null
+  export type IssueScalarWhereWithAggregatesInput = {
+    AND?: IssueScalarWhereWithAggregatesInput | IssueScalarWhereWithAggregatesInput[]
+    OR?: IssueScalarWhereWithAggregatesInput[]
+    NOT?: IssueScalarWhereWithAggregatesInput | IssueScalarWhereWithAggregatesInput[]
+    id?: IntWithAggregatesFilter<"Issue"> | number
+    title?: StringWithAggregatesFilter<"Issue"> | string
+    description?: StringWithAggregatesFilter<"Issue"> | string
+    status?: EnumStatusWithAggregatesFilter<"Issue"> | $Enums.Status
+    createdAt?: DateTimeWithAggregatesFilter<"Issue"> | Date | string
+    updatedt?: DateTimeWithAggregatesFilter<"Issue"> | Date | string
+    assigneToUserId?: StringNullableWithAggregatesFilter<"Issue"> | string | null
   }
 
   export type AccountWhereInput = {
@@ -7157,7 +7157,7 @@ export namespace Prisma {
     image?: StringNullableFilter<"User"> | string | null
     accounts?: AccountListRelationFilter
     sessions?: SessionListRelationFilter
-    assignedIssues?: IssusListRelationFilter
+    assignedIssues?: IssueListRelationFilter
   }
 
   export type UserOrderByWithRelationInput = {
@@ -7168,7 +7168,7 @@ export namespace Prisma {
     image?: SortOrderInput | SortOrder
     accounts?: AccountOrderByRelationAggregateInput
     sessions?: SessionOrderByRelationAggregateInput
-    assignedIssues?: IssusOrderByRelationAggregateInput
+    assignedIssues?: IssueOrderByRelationAggregateInput
   }
 
   export type UserWhereUniqueInput = Prisma.AtLeast<{
@@ -7182,7 +7182,7 @@ export namespace Prisma {
     image?: StringNullableFilter<"User"> | string | null
     accounts?: AccountListRelationFilter
     sessions?: SessionListRelationFilter
-    assignedIssues?: IssusListRelationFilter
+    assignedIssues?: IssueListRelationFilter
   }, "id" | "email">
 
   export type UserOrderByWithAggregationInput = {
@@ -7250,7 +7250,7 @@ export namespace Prisma {
     expires?: DateTimeWithAggregatesFilter<"VerificationToken"> | Date | string
   }
 
-  export type IssusCreateInput = {
+  export type IssueCreateInput = {
     title: string
     description: string
     status?: $Enums.Status
@@ -7259,7 +7259,7 @@ export namespace Prisma {
     assigneToUser?: UserCreateNestedOneWithoutAssignedIssuesInput
   }
 
-  export type IssusUncheckedCreateInput = {
+  export type IssueUncheckedCreateInput = {
     id?: number
     title: string
     description: string
@@ -7269,7 +7269,7 @@ export namespace Prisma {
     assigneToUserId?: string | null
   }
 
-  export type IssusUpdateInput = {
+  export type IssueUpdateInput = {
     title?: StringFieldUpdateOperationsInput | string
     description?: StringFieldUpdateOperationsInput | string
     status?: EnumStatusFieldUpdateOperationsInput | $Enums.Status
@@ -7278,7 +7278,7 @@ export namespace Prisma {
     assigneToUser?: UserUpdateOneWithoutAssignedIssuesNestedInput
   }
 
-  export type IssusUncheckedUpdateInput = {
+  export type IssueUncheckedUpdateInput = {
     id?: IntFieldUpdateOperationsInput | number
     title?: StringFieldUpdateOperationsInput | string
     description?: StringFieldUpdateOperationsInput | string
@@ -7288,7 +7288,7 @@ export namespace Prisma {
     assigneToUserId?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
-  export type IssusCreateManyInput = {
+  export type IssueCreateManyInput = {
     id?: number
     title: string
     description: string
@@ -7298,7 +7298,7 @@ export namespace Prisma {
     assigneToUserId?: string | null
   }
 
-  export type IssusUpdateManyMutationInput = {
+  export type IssueUpdateManyMutationInput = {
     title?: StringFieldUpdateOperationsInput | string
     description?: StringFieldUpdateOperationsInput | string
     status?: EnumStatusFieldUpdateOperationsInput | $Enums.Status
@@ -7306,7 +7306,7 @@ export namespace Prisma {
     updatedt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
-  export type IssusUncheckedUpdateManyInput = {
+  export type IssueUncheckedUpdateManyInput = {
     id?: IntFieldUpdateOperationsInput | number
     title?: StringFieldUpdateOperationsInput | string
     description?: StringFieldUpdateOperationsInput | string
@@ -7476,7 +7476,7 @@ export namespace Prisma {
     image?: string | null
     accounts?: AccountCreateNestedManyWithoutUserInput
     sessions?: SessionCreateNestedManyWithoutUserInput
-    assignedIssues?: IssusCreateNestedManyWithoutAssigneToUserInput
+    assignedIssues?: IssueCreateNestedManyWithoutAssigneToUserInput
   }
 
   export type UserUncheckedCreateInput = {
@@ -7487,7 +7487,7 @@ export namespace Prisma {
     image?: string | null
     accounts?: AccountUncheckedCreateNestedManyWithoutUserInput
     sessions?: SessionUncheckedCreateNestedManyWithoutUserInput
-    assignedIssues?: IssusUncheckedCreateNestedManyWithoutAssigneToUserInput
+    assignedIssues?: IssueUncheckedCreateNestedManyWithoutAssigneToUserInput
   }
 
   export type UserUpdateInput = {
@@ -7498,7 +7498,7 @@ export namespace Prisma {
     image?: NullableStringFieldUpdateOperationsInput | string | null
     accounts?: AccountUpdateManyWithoutUserNestedInput
     sessions?: SessionUpdateManyWithoutUserNestedInput
-    assignedIssues?: IssusUpdateManyWithoutAssigneToUserNestedInput
+    assignedIssues?: IssueUpdateManyWithoutAssigneToUserNestedInput
   }
 
   export type UserUncheckedUpdateInput = {
@@ -7509,7 +7509,7 @@ export namespace Prisma {
     image?: NullableStringFieldUpdateOperationsInput | string | null
     accounts?: AccountUncheckedUpdateManyWithoutUserNestedInput
     sessions?: SessionUncheckedUpdateManyWithoutUserNestedInput
-    assignedIssues?: IssusUncheckedUpdateManyWithoutAssigneToUserNestedInput
+    assignedIssues?: IssueUncheckedUpdateManyWithoutAssigneToUserNestedInput
   }
 
   export type UserCreateManyInput = {
@@ -7647,7 +7647,7 @@ export namespace Prisma {
     nulls?: NullsOrder
   }
 
-  export type IssusCountOrderByAggregateInput = {
+  export type IssueCountOrderByAggregateInput = {
     id?: SortOrder
     title?: SortOrder
     description?: SortOrder
@@ -7657,21 +7657,11 @@ export namespace Prisma {
     assigneToUserId?: SortOrder
   }
 
-  export type IssusAvgOrderByAggregateInput = {
+  export type IssueAvgOrderByAggregateInput = {
     id?: SortOrder
   }
 
-  export type IssusMaxOrderByAggregateInput = {
-    id?: SortOrder
-    title?: SortOrder
-    description?: SortOrder
-    status?: SortOrder
-    createdAt?: SortOrder
-    updatedt?: SortOrder
-    assigneToUserId?: SortOrder
-  }
-
-  export type IssusMinOrderByAggregateInput = {
+  export type IssueMaxOrderByAggregateInput = {
     id?: SortOrder
     title?: SortOrder
     description?: SortOrder
@@ -7681,7 +7671,17 @@ export namespace Prisma {
     assigneToUserId?: SortOrder
   }
 
-  export type IssusSumOrderByAggregateInput = {
+  export type IssueMinOrderByAggregateInput = {
+    id?: SortOrder
+    title?: SortOrder
+    description?: SortOrder
+    status?: SortOrder
+    createdAt?: SortOrder
+    updatedt?: SortOrder
+    assigneToUserId?: SortOrder
+  }
+
+  export type IssueSumOrderByAggregateInput = {
     id?: SortOrder
   }
 
@@ -7895,10 +7895,10 @@ export namespace Prisma {
     none?: SessionWhereInput
   }
 
-  export type IssusListRelationFilter = {
-    every?: IssusWhereInput
-    some?: IssusWhereInput
-    none?: IssusWhereInput
+  export type IssueListRelationFilter = {
+    every?: IssueWhereInput
+    some?: IssueWhereInput
+    none?: IssueWhereInput
   }
 
   export type AccountOrderByRelationAggregateInput = {
@@ -7909,7 +7909,7 @@ export namespace Prisma {
     _count?: SortOrder
   }
 
-  export type IssusOrderByRelationAggregateInput = {
+  export type IssueOrderByRelationAggregateInput = {
     _count?: SortOrder
   }
 
@@ -8064,11 +8064,11 @@ export namespace Prisma {
     connect?: SessionWhereUniqueInput | SessionWhereUniqueInput[]
   }
 
-  export type IssusCreateNestedManyWithoutAssigneToUserInput = {
-    create?: XOR<IssusCreateWithoutAssigneToUserInput, IssusUncheckedCreateWithoutAssigneToUserInput> | IssusCreateWithoutAssigneToUserInput[] | IssusUncheckedCreateWithoutAssigneToUserInput[]
-    connectOrCreate?: IssusCreateOrConnectWithoutAssigneToUserInput | IssusCreateOrConnectWithoutAssigneToUserInput[]
-    createMany?: IssusCreateManyAssigneToUserInputEnvelope
-    connect?: IssusWhereUniqueInput | IssusWhereUniqueInput[]
+  export type IssueCreateNestedManyWithoutAssigneToUserInput = {
+    create?: XOR<IssueCreateWithoutAssigneToUserInput, IssueUncheckedCreateWithoutAssigneToUserInput> | IssueCreateWithoutAssigneToUserInput[] | IssueUncheckedCreateWithoutAssigneToUserInput[]
+    connectOrCreate?: IssueCreateOrConnectWithoutAssigneToUserInput | IssueCreateOrConnectWithoutAssigneToUserInput[]
+    createMany?: IssueCreateManyAssigneToUserInputEnvelope
+    connect?: IssueWhereUniqueInput | IssueWhereUniqueInput[]
   }
 
   export type AccountUncheckedCreateNestedManyWithoutUserInput = {
@@ -8085,11 +8085,11 @@ export namespace Prisma {
     connect?: SessionWhereUniqueInput | SessionWhereUniqueInput[]
   }
 
-  export type IssusUncheckedCreateNestedManyWithoutAssigneToUserInput = {
-    create?: XOR<IssusCreateWithoutAssigneToUserInput, IssusUncheckedCreateWithoutAssigneToUserInput> | IssusCreateWithoutAssigneToUserInput[] | IssusUncheckedCreateWithoutAssigneToUserInput[]
-    connectOrCreate?: IssusCreateOrConnectWithoutAssigneToUserInput | IssusCreateOrConnectWithoutAssigneToUserInput[]
-    createMany?: IssusCreateManyAssigneToUserInputEnvelope
-    connect?: IssusWhereUniqueInput | IssusWhereUniqueInput[]
+  export type IssueUncheckedCreateNestedManyWithoutAssigneToUserInput = {
+    create?: XOR<IssueCreateWithoutAssigneToUserInput, IssueUncheckedCreateWithoutAssigneToUserInput> | IssueCreateWithoutAssigneToUserInput[] | IssueUncheckedCreateWithoutAssigneToUserInput[]
+    connectOrCreate?: IssueCreateOrConnectWithoutAssigneToUserInput | IssueCreateOrConnectWithoutAssigneToUserInput[]
+    createMany?: IssueCreateManyAssigneToUserInputEnvelope
+    connect?: IssueWhereUniqueInput | IssueWhereUniqueInput[]
   }
 
   export type NullableDateTimeFieldUpdateOperationsInput = {
@@ -8124,18 +8124,18 @@ export namespace Prisma {
     deleteMany?: SessionScalarWhereInput | SessionScalarWhereInput[]
   }
 
-  export type IssusUpdateManyWithoutAssigneToUserNestedInput = {
-    create?: XOR<IssusCreateWithoutAssigneToUserInput, IssusUncheckedCreateWithoutAssigneToUserInput> | IssusCreateWithoutAssigneToUserInput[] | IssusUncheckedCreateWithoutAssigneToUserInput[]
-    connectOrCreate?: IssusCreateOrConnectWithoutAssigneToUserInput | IssusCreateOrConnectWithoutAssigneToUserInput[]
-    upsert?: IssusUpsertWithWhereUniqueWithoutAssigneToUserInput | IssusUpsertWithWhereUniqueWithoutAssigneToUserInput[]
-    createMany?: IssusCreateManyAssigneToUserInputEnvelope
-    set?: IssusWhereUniqueInput | IssusWhereUniqueInput[]
-    disconnect?: IssusWhereUniqueInput | IssusWhereUniqueInput[]
-    delete?: IssusWhereUniqueInput | IssusWhereUniqueInput[]
-    connect?: IssusWhereUniqueInput | IssusWhereUniqueInput[]
-    update?: IssusUpdateWithWhereUniqueWithoutAssigneToUserInput | IssusUpdateWithWhereUniqueWithoutAssigneToUserInput[]
-    updateMany?: IssusUpdateManyWithWhereWithoutAssigneToUserInput | IssusUpdateManyWithWhereWithoutAssigneToUserInput[]
-    deleteMany?: IssusScalarWhereInput | IssusScalarWhereInput[]
+  export type IssueUpdateManyWithoutAssigneToUserNestedInput = {
+    create?: XOR<IssueCreateWithoutAssigneToUserInput, IssueUncheckedCreateWithoutAssigneToUserInput> | IssueCreateWithoutAssigneToUserInput[] | IssueUncheckedCreateWithoutAssigneToUserInput[]
+    connectOrCreate?: IssueCreateOrConnectWithoutAssigneToUserInput | IssueCreateOrConnectWithoutAssigneToUserInput[]
+    upsert?: IssueUpsertWithWhereUniqueWithoutAssigneToUserInput | IssueUpsertWithWhereUniqueWithoutAssigneToUserInput[]
+    createMany?: IssueCreateManyAssigneToUserInputEnvelope
+    set?: IssueWhereUniqueInput | IssueWhereUniqueInput[]
+    disconnect?: IssueWhereUniqueInput | IssueWhereUniqueInput[]
+    delete?: IssueWhereUniqueInput | IssueWhereUniqueInput[]
+    connect?: IssueWhereUniqueInput | IssueWhereUniqueInput[]
+    update?: IssueUpdateWithWhereUniqueWithoutAssigneToUserInput | IssueUpdateWithWhereUniqueWithoutAssigneToUserInput[]
+    updateMany?: IssueUpdateManyWithWhereWithoutAssigneToUserInput | IssueUpdateManyWithWhereWithoutAssigneToUserInput[]
+    deleteMany?: IssueScalarWhereInput | IssueScalarWhereInput[]
   }
 
   export type AccountUncheckedUpdateManyWithoutUserNestedInput = {
@@ -8166,18 +8166,18 @@ export namespace Prisma {
     deleteMany?: SessionScalarWhereInput | SessionScalarWhereInput[]
   }
 
-  export type IssusUncheckedUpdateManyWithoutAssigneToUserNestedInput = {
-    create?: XOR<IssusCreateWithoutAssigneToUserInput, IssusUncheckedCreateWithoutAssigneToUserInput> | IssusCreateWithoutAssigneToUserInput[] | IssusUncheckedCreateWithoutAssigneToUserInput[]
-    connectOrCreate?: IssusCreateOrConnectWithoutAssigneToUserInput | IssusCreateOrConnectWithoutAssigneToUserInput[]
-    upsert?: IssusUpsertWithWhereUniqueWithoutAssigneToUserInput | IssusUpsertWithWhereUniqueWithoutAssigneToUserInput[]
-    createMany?: IssusCreateManyAssigneToUserInputEnvelope
-    set?: IssusWhereUniqueInput | IssusWhereUniqueInput[]
-    disconnect?: IssusWhereUniqueInput | IssusWhereUniqueInput[]
-    delete?: IssusWhereUniqueInput | IssusWhereUniqueInput[]
-    connect?: IssusWhereUniqueInput | IssusWhereUniqueInput[]
-    update?: IssusUpdateWithWhereUniqueWithoutAssigneToUserInput | IssusUpdateWithWhereUniqueWithoutAssigneToUserInput[]
-    updateMany?: IssusUpdateManyWithWhereWithoutAssigneToUserInput | IssusUpdateManyWithWhereWithoutAssigneToUserInput[]
-    deleteMany?: IssusScalarWhereInput | IssusScalarWhereInput[]
+  export type IssueUncheckedUpdateManyWithoutAssigneToUserNestedInput = {
+    create?: XOR<IssueCreateWithoutAssigneToUserInput, IssueUncheckedCreateWithoutAssigneToUserInput> | IssueCreateWithoutAssigneToUserInput[] | IssueUncheckedCreateWithoutAssigneToUserInput[]
+    connectOrCreate?: IssueCreateOrConnectWithoutAssigneToUserInput | IssueCreateOrConnectWithoutAssigneToUserInput[]
+    upsert?: IssueUpsertWithWhereUniqueWithoutAssigneToUserInput | IssueUpsertWithWhereUniqueWithoutAssigneToUserInput[]
+    createMany?: IssueCreateManyAssigneToUserInputEnvelope
+    set?: IssueWhereUniqueInput | IssueWhereUniqueInput[]
+    disconnect?: IssueWhereUniqueInput | IssueWhereUniqueInput[]
+    delete?: IssueWhereUniqueInput | IssueWhereUniqueInput[]
+    connect?: IssueWhereUniqueInput | IssueWhereUniqueInput[]
+    update?: IssueUpdateWithWhereUniqueWithoutAssigneToUserInput | IssueUpdateWithWhereUniqueWithoutAssigneToUserInput[]
+    updateMany?: IssueUpdateManyWithWhereWithoutAssigneToUserInput | IssueUpdateManyWithWhereWithoutAssigneToUserInput[]
+    deleteMany?: IssueScalarWhereInput | IssueScalarWhereInput[]
   }
 
   export type NestedIntFilter<$PrismaModel = never> = {
@@ -8448,7 +8448,7 @@ export namespace Prisma {
     emailVerified?: Date | string | null
     image?: string | null
     sessions?: SessionCreateNestedManyWithoutUserInput
-    assignedIssues?: IssusCreateNestedManyWithoutAssigneToUserInput
+    assignedIssues?: IssueCreateNestedManyWithoutAssigneToUserInput
   }
 
   export type UserUncheckedCreateWithoutAccountsInput = {
@@ -8458,7 +8458,7 @@ export namespace Prisma {
     emailVerified?: Date | string | null
     image?: string | null
     sessions?: SessionUncheckedCreateNestedManyWithoutUserInput
-    assignedIssues?: IssusUncheckedCreateNestedManyWithoutAssigneToUserInput
+    assignedIssues?: IssueUncheckedCreateNestedManyWithoutAssigneToUserInput
   }
 
   export type UserCreateOrConnectWithoutAccountsInput = {
@@ -8484,7 +8484,7 @@ export namespace Prisma {
     emailVerified?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     image?: NullableStringFieldUpdateOperationsInput | string | null
     sessions?: SessionUpdateManyWithoutUserNestedInput
-    assignedIssues?: IssusUpdateManyWithoutAssigneToUserNestedInput
+    assignedIssues?: IssueUpdateManyWithoutAssigneToUserNestedInput
   }
 
   export type UserUncheckedUpdateWithoutAccountsInput = {
@@ -8494,7 +8494,7 @@ export namespace Prisma {
     emailVerified?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     image?: NullableStringFieldUpdateOperationsInput | string | null
     sessions?: SessionUncheckedUpdateManyWithoutUserNestedInput
-    assignedIssues?: IssusUncheckedUpdateManyWithoutAssigneToUserNestedInput
+    assignedIssues?: IssueUncheckedUpdateManyWithoutAssigneToUserNestedInput
   }
 
   export type UserCreateWithoutSessionsInput = {
@@ -8504,7 +8504,7 @@ export namespace Prisma {
     emailVerified?: Date | string | null
     image?: string | null
     accounts?: AccountCreateNestedManyWithoutUserInput
-    assignedIssues?: IssusCreateNestedManyWithoutAssigneToUserInput
+    assignedIssues?: IssueCreateNestedManyWithoutAssigneToUserInput
   }
 
   export type UserUncheckedCreateWithoutSessionsInput = {
@@ -8514,7 +8514,7 @@ export namespace Prisma {
     emailVerified?: Date | string | null
     image?: string | null
     accounts?: AccountUncheckedCreateNestedManyWithoutUserInput
-    assignedIssues?: IssusUncheckedCreateNestedManyWithoutAssigneToUserInput
+    assignedIssues?: IssueUncheckedCreateNestedManyWithoutAssigneToUserInput
   }
 
   export type UserCreateOrConnectWithoutSessionsInput = {
@@ -8540,7 +8540,7 @@ export namespace Prisma {
     emailVerified?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     image?: NullableStringFieldUpdateOperationsInput | string | null
     accounts?: AccountUpdateManyWithoutUserNestedInput
-    assignedIssues?: IssusUpdateManyWithoutAssigneToUserNestedInput
+    assignedIssues?: IssueUpdateManyWithoutAssigneToUserNestedInput
   }
 
   export type UserUncheckedUpdateWithoutSessionsInput = {
@@ -8550,7 +8550,7 @@ export namespace Prisma {
     emailVerified?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     image?: NullableStringFieldUpdateOperationsInput | string | null
     accounts?: AccountUncheckedUpdateManyWithoutUserNestedInput
-    assignedIssues?: IssusUncheckedUpdateManyWithoutAssigneToUserNestedInput
+    assignedIssues?: IssueUncheckedUpdateManyWithoutAssigneToUserNestedInput
   }
 
   export type AccountCreateWithoutUserInput = {
@@ -8613,7 +8613,7 @@ export namespace Prisma {
     skipDuplicates?: boolean
   }
 
-  export type IssusCreateWithoutAssigneToUserInput = {
+  export type IssueCreateWithoutAssigneToUserInput = {
     title: string
     description: string
     status?: $Enums.Status
@@ -8621,7 +8621,7 @@ export namespace Prisma {
     updatedt?: Date | string
   }
 
-  export type IssusUncheckedCreateWithoutAssigneToUserInput = {
+  export type IssueUncheckedCreateWithoutAssigneToUserInput = {
     id?: number
     title: string
     description: string
@@ -8630,13 +8630,13 @@ export namespace Prisma {
     updatedt?: Date | string
   }
 
-  export type IssusCreateOrConnectWithoutAssigneToUserInput = {
-    where: IssusWhereUniqueInput
-    create: XOR<IssusCreateWithoutAssigneToUserInput, IssusUncheckedCreateWithoutAssigneToUserInput>
+  export type IssueCreateOrConnectWithoutAssigneToUserInput = {
+    where: IssueWhereUniqueInput
+    create: XOR<IssueCreateWithoutAssigneToUserInput, IssueUncheckedCreateWithoutAssigneToUserInput>
   }
 
-  export type IssusCreateManyAssigneToUserInputEnvelope = {
-    data: IssusCreateManyAssigneToUserInput | IssusCreateManyAssigneToUserInput[]
+  export type IssueCreateManyAssigneToUserInputEnvelope = {
+    data: IssueCreateManyAssigneToUserInput | IssueCreateManyAssigneToUserInput[]
     skipDuplicates?: boolean
   }
 
@@ -8700,33 +8700,33 @@ export namespace Prisma {
     expires?: DateTimeFilter<"Session"> | Date | string
   }
 
-  export type IssusUpsertWithWhereUniqueWithoutAssigneToUserInput = {
-    where: IssusWhereUniqueInput
-    update: XOR<IssusUpdateWithoutAssigneToUserInput, IssusUncheckedUpdateWithoutAssigneToUserInput>
-    create: XOR<IssusCreateWithoutAssigneToUserInput, IssusUncheckedCreateWithoutAssigneToUserInput>
+  export type IssueUpsertWithWhereUniqueWithoutAssigneToUserInput = {
+    where: IssueWhereUniqueInput
+    update: XOR<IssueUpdateWithoutAssigneToUserInput, IssueUncheckedUpdateWithoutAssigneToUserInput>
+    create: XOR<IssueCreateWithoutAssigneToUserInput, IssueUncheckedCreateWithoutAssigneToUserInput>
   }
 
-  export type IssusUpdateWithWhereUniqueWithoutAssigneToUserInput = {
-    where: IssusWhereUniqueInput
-    data: XOR<IssusUpdateWithoutAssigneToUserInput, IssusUncheckedUpdateWithoutAssigneToUserInput>
+  export type IssueUpdateWithWhereUniqueWithoutAssigneToUserInput = {
+    where: IssueWhereUniqueInput
+    data: XOR<IssueUpdateWithoutAssigneToUserInput, IssueUncheckedUpdateWithoutAssigneToUserInput>
   }
 
-  export type IssusUpdateManyWithWhereWithoutAssigneToUserInput = {
-    where: IssusScalarWhereInput
-    data: XOR<IssusUpdateManyMutationInput, IssusUncheckedUpdateManyWithoutAssigneToUserInput>
+  export type IssueUpdateManyWithWhereWithoutAssigneToUserInput = {
+    where: IssueScalarWhereInput
+    data: XOR<IssueUpdateManyMutationInput, IssueUncheckedUpdateManyWithoutAssigneToUserInput>
   }
 
-  export type IssusScalarWhereInput = {
-    AND?: IssusScalarWhereInput | IssusScalarWhereInput[]
-    OR?: IssusScalarWhereInput[]
-    NOT?: IssusScalarWhereInput | IssusScalarWhereInput[]
-    id?: IntFilter<"Issus"> | number
-    title?: StringFilter<"Issus"> | string
-    description?: StringFilter<"Issus"> | string
-    status?: EnumStatusFilter<"Issus"> | $Enums.Status
-    createdAt?: DateTimeFilter<"Issus"> | Date | string
-    updatedt?: DateTimeFilter<"Issus"> | Date | string
-    assigneToUserId?: StringNullableFilter<"Issus"> | string | null
+  export type IssueScalarWhereInput = {
+    AND?: IssueScalarWhereInput | IssueScalarWhereInput[]
+    OR?: IssueScalarWhereInput[]
+    NOT?: IssueScalarWhereInput | IssueScalarWhereInput[]
+    id?: IntFilter<"Issue"> | number
+    title?: StringFilter<"Issue"> | string
+    description?: StringFilter<"Issue"> | string
+    status?: EnumStatusFilter<"Issue"> | $Enums.Status
+    createdAt?: DateTimeFilter<"Issue"> | Date | string
+    updatedt?: DateTimeFilter<"Issue"> | Date | string
+    assigneToUserId?: StringNullableFilter<"Issue"> | string | null
   }
 
   export type AccountCreateManyUserInput = {
@@ -8749,7 +8749,7 @@ export namespace Prisma {
     expires: Date | string
   }
 
-  export type IssusCreateManyAssigneToUserInput = {
+  export type IssueCreateManyAssigneToUserInput = {
     id?: number
     title: string
     description: string
@@ -8818,7 +8818,7 @@ export namespace Prisma {
     expires?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
-  export type IssusUpdateWithoutAssigneToUserInput = {
+  export type IssueUpdateWithoutAssigneToUserInput = {
     title?: StringFieldUpdateOperationsInput | string
     description?: StringFieldUpdateOperationsInput | string
     status?: EnumStatusFieldUpdateOperationsInput | $Enums.Status
@@ -8826,7 +8826,7 @@ export namespace Prisma {
     updatedt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
-  export type IssusUncheckedUpdateWithoutAssigneToUserInput = {
+  export type IssueUncheckedUpdateWithoutAssigneToUserInput = {
     id?: IntFieldUpdateOperationsInput | number
     title?: StringFieldUpdateOperationsInput | string
     description?: StringFieldUpdateOperationsInput | string
@@ -8835,7 +8835,7 @@ export namespace Prisma {
     updatedt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
-  export type IssusUncheckedUpdateManyWithoutAssigneToUserInput = {
+  export type IssueUncheckedUpdateManyWithoutAssigneToUserInput = {
     id?: IntFieldUpdateOperationsInput | number
     title?: StringFieldUpdateOperationsInput | string
     description?: StringFieldUpdateOperationsInput | string

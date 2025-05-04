@@ -117,7 +117,7 @@ exports.Prisma.TransactionIsolationLevel = makeStrictEnum({
   Serializable: 'Serializable'
 });
 
-exports.Prisma.IssusScalarFieldEnum = {
+exports.Prisma.IssueScalarFieldEnum = {
   id: 'id',
   title: 'title',
   description: 'description',
@@ -184,7 +184,7 @@ exports.Status = exports.$Enums.Status = {
 };
 
 exports.Prisma.ModelName = {
-  Issus: 'Issus',
+  Issue: 'Issue',
   Account: 'Account',
   Session: 'Session',
   User: 'User',

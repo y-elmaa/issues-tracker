@@ -14,7 +14,7 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model Issus {
+model Issue {
   id              Int      @id @default(autoincrement())
   title           String   @db.VarChar(255)
   description     String   @db.Text
@@ -69,7 +69,7 @@ model User {
   image          String?
   accounts       Account[]
   sessions       Session[]
-  assignedIssues Issus[]
+  assignedIssues Issue[]
 
   @@map("users")
 }

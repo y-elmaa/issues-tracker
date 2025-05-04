@@ -1,12 +1,12 @@
 "use client";
-import { Issus, User } from "@/app/generated/prisma";
+import { Issue, User } from "@/app/generated/prisma";
 import { Select } from "@radix-ui/themes";
 import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
 import { Skeleton } from "@/app/components";
 import toast, {  Toaster } from "react-hot-toast"; 
 
-const AssignementSelect = ({ issue }: { issue: Issus }) => {
+const AssignementSelect = ({ issue }: { issue: Issue }) => {
   const { data: users, error, isLoading } = useUsers();
   const assignIssue = (userId: string) => {
     axios

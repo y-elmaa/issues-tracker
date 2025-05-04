@@ -28,12 +28,12 @@ export async function PATCH(
       return NextResponse.json({ error: "Invalid user." }, { status: 400 });
     }
   }
-  const issue = await prisma.issus.findUnique({
+  const issue = await prisma.issue.findUnique({
     where: { id: parseInt(params.id) },
   });
   if (!issue)
     return NextResponse.json({ error: "issue not exist" }, { status: 404 });
-  const updatedIssue = await prisma.issus.update({
+  const updatedIssue = await prisma.issue.update({
     where: { id: issue.id },
     data: { title, description, assigneToUserId },
   });
@@ -48,12 +48,12 @@ export async function DELETE(
 ) {
   const session = await getServerSession(AuthOption);
   if (!session) return NextResponse.json({}, { status: 401 });
-  const issue = await prisma.issus.findUnique({
+  const issue = await prisma.issue.findUnique({
     where: { id: parseInt(params.id) },
   });
   if (!issue)
     return NextResponse.json({ error: "issue not exist" }, { status: 404 });
-  await prisma.issus.delete({
+  await prisma.issue.delete({
     where: { id: issue.id },
   });
   return NextResponse.json({});

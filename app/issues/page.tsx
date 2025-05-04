@@ -4,20 +4,20 @@ import { IssuesStatusBadge, Link } from "../components";
 import IssuesAction from "./IssuesAction";
 import { Status } from "../generated/prisma";
 
-interface Props {
-  searchParams: { status?: string };
-}
-
-const IssuesPage = async ({ searchParams }: Props) => {
+const IssuesPage = async (props: {
+  searchParams: Promise<{ status: Status }>;
+}) => {
+  const { status: rawStatus } = await props.searchParams;
   const statuses = Object.values(Status);
-  const status = statuses.includes(searchParams.status as Status) 
-    ? searchParams.status as Status
-    : undefined;
 
-  const issues = await prisma.issus.findMany({
+  const status = statuses.includes(rawStatus) ? rawStatus : undefined;
+
+  console.log("Search param status:", status);
+
+  const issues = await prisma.issue.findMany({
     where: {
-      status
-    }
+      status,
+    },
   });
 
   return (

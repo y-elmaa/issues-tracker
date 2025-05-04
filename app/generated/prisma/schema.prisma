@@ -14,13 +14,15 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model Issus {
-  id          Int      @id @default(autoincrement())
-  title       String   @db.VarChar(255)
-  description String   @db.Text
-  status      Status   @default(OPEN)
-  createdAt   DateTime @default(now())
-  updatedt    DateTime @updatedAt
+model Issue {
+  id              Int      @id @default(autoincrement())
+  title           String   @db.VarChar(255)
+  description     String   @db.Text
+  status          Status   @default(OPEN)
+  createdAt       DateTime @default(now())
+  updatedt        DateTime @updatedAt
+  assigneToUserId String?  @db.VarChar(255)
+  assigneToUser   User?    @relation(fields: [assigneToUserId], references: [id])
 }
 
 enum Status {
@@ -60,13 +62,14 @@ model Session {
 }
 
 model User {
-  id            String    @id @default(cuid())
-  name          String?
-  email         String?   @unique
-  emailVerified DateTime? @map("email_verified")
-  image         String?
-  accounts      Account[]
-  sessions      Session[]
+  id             String    @id @default(cuid())
+  name           String?
+  email          String?   @unique
+  emailVerified  DateTime? @map("email_verified")
+  image          String?
+  accounts       Account[]
+  sessions       Session[]
+  assignedIssues Issue[]
 
   @@map("users")
 }

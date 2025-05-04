@@ -16,7 +16,7 @@ const IssueStatusFilter = () => {
   return (
     <Select.Root
       onValueChange={(status) => {
-        const query = status === "_all_" ? "" : `?status=${status}`;
+        const query = status === "All" ? "" : `?status=${status}`;
         router.push("/issues" + query);
       }}
     >
@@ -24,8 +24,8 @@ const IssueStatusFilter = () => {
       <Select.Content>
         {statuses.map((status) => (
           <Select.Item
-            key={status.value ?? "_all_"}
-            value={status.value ?? "_all_"}
+            key={status.value ?? "All"}
+            value={status.value ?? "All"}
           >
             {status.label}
           </Select.Item>

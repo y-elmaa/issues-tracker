@@ -13,7 +13,7 @@ interface Props {
 }
 const IssueDetailPage = async ({ params }: Props) => {
   const session = await getServerSession(AuthOption);
-  const issue = await prisma.issus.findUnique({
+  const issue = await prisma.issue.findUnique({
     where: { id: parseInt(params.id) },
   });
   if (!issue) notFound();
