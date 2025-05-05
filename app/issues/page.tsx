@@ -18,10 +18,13 @@ const IssuesPage = async (props: Issuepageprops) => {
   ];
   const resolvedParams = await props.searchParams;
   const rawStatus = resolvedParams.status;
-  const orderBy = resolvedParams.orderBy;
+  const orderedBy = resolvedParams.orderBy;
   const statuses = Object.values(Status);
 
   const status = statuses.includes(rawStatus) ? rawStatus : undefined;
+  const orderBy = columns.map((column) => column.value).includes(orderedBy)
+    ? { [orderedBy]: "asc" }
+    : undefined;
 
   console.log("Search param status:", status);
 
@@ -29,6 +32,7 @@ const IssuesPage = async (props: Issuepageprops) => {
     where: {
       status,
     },
+    orderBy,
   });
 
   return (
@@ -44,7 +48,9 @@ const IssuesPage = async (props: Issuepageprops) => {
                 >
                   {column.label}
                 </NextLink>
-                {column.value === orderBy && <ArrowUpIcon className="inline" />}
+                {column.value === orderedBy && (
+                  <ArrowUpIcon className="inline" />
+                )}
               </Table.ColumnHeaderCell>
             ))}
           </Table.Row>
