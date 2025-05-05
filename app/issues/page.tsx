@@ -2,12 +2,23 @@ import { prisma } from "@/prisma/client";
 import { Table } from "@radix-ui/themes";
 import { IssuesStatusBadge, Link } from "../components";
 import IssuesAction from "./IssuesAction";
-import { Status } from "../generated/prisma";
+import { Issue, Status } from "../generated/prisma";
+import NextLink from "next/link";
+import { ArrowUpIcon } from "@radix-ui/react-icons";
 
-const IssuesPage = async (props: {
-  searchParams: Promise<{ status: Status }>;
-}) => {
-  const { status: rawStatus } = await props.searchParams;
+interface Issuepageprops {
+  searchParams: Promise<{ status: Status; orderBy: keyof Issue }>;
+}
+
+const IssuesPage = async (props: Issuepageprops) => {
+  const columns: { label: string; value: keyof Issue; className?: string }[] = [
+    { label: "Issue", value: "title" },
+    { label: "Stauts", value: "status", className: "hidden sm:table-cell" },
+    { label: "Created", value: "createdAt", className: "hidden sm:table-cell" },
+  ];
+  const resolvedParams = await props.searchParams;
+  const rawStatus = resolvedParams.status;
+  const orderBy = resolvedParams.orderBy;
   const statuses = Object.values(Status);
 
   const status = statuses.includes(rawStatus) ? rawStatus : undefined;
@@ -26,13 +37,16 @@ const IssuesPage = async (props: {
       <Table.Root variant="surface">
         <Table.Header>
           <Table.Row>
-            <Table.ColumnHeaderCell>Issue</Table.ColumnHeaderCell>
-            <Table.ColumnHeaderCell className="hidden sm:table-cell">
-              Status
-            </Table.ColumnHeaderCell>
-            <Table.ColumnHeaderCell className="hidden sm:table-cell">
-              Date
-            </Table.ColumnHeaderCell>
+            {columns.map((column) => (
+              <Table.ColumnHeaderCell key={column.value}>
+                <NextLink
+                  href={{ query: { ...resolvedParams, orderBy: column.value } }}
+                >
+                  {column.label}
+                </NextLink>
+                {column.value === orderBy && <ArrowUpIcon className="inline" />}
+              </Table.ColumnHeaderCell>
+            ))}
           </Table.Row>
         </Table.Header>
         <Table.Body>
