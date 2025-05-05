@@ -1,89 +1,47 @@
 import { prisma } from "@/prisma/client";
-import { Table } from "@radix-ui/themes";
-import { IssuesStatusBadge, Link } from "../components";
-import IssuesAction from "./IssuesAction";
-import { Issue, Status } from "../generated/prisma";
-import NextLink from "next/link";
-import { ArrowUpIcon } from "@radix-ui/react-icons";
+import { Flex } from "@radix-ui/themes";
 import Pagination from "../components/Pagination";
+import { Status } from "../generated/prisma";
+import IssuesAction from "./IssuesAction";
+import IssueTable, { columnIssue, IssueQuery } from "./IssueTable";
 
 interface Issuepageprops {
-  searchParams: Promise<{ status: Status; orderBy: keyof Issue , page:string}>;
+  searchParams: Promise< IssueQuery >;
 }
 
 const IssuesPage = async (props: Issuepageprops) => {
-  const columns: { label: string; value: keyof Issue; className?: string }[] = [
-    { label: "Issue", value: "title" },
-    { label: "Stauts", value: "status", className: "hidden sm:table-cell" },
-    { label: "Created", value: "createdAt", className: "hidden sm:table-cell" },
-  ];
   const resolvedParams = await props.searchParams;
   const rawStatus = resolvedParams.status;
   const orderedBy = resolvedParams.orderBy;
-  const page = parseInt(resolvedParams.page) || 1 ;
+  const page = parseInt(resolvedParams.page) || 1;
   const pageSize = 10;
   const statuses = Object.values(Status);
 
   const status = statuses.includes(rawStatus) ? rawStatus : undefined;
-  const orderBy = columns.map((column) => column.value).includes(orderedBy)
+  const orderBy = columnIssue.includes(orderedBy)
     ? { [orderedBy]: "asc" }
     : undefined;
 
-  const where = {status}
+  const where = { status };
 
   const issues = await prisma.issue.findMany({
     where,
     orderBy,
-    skip:(page - 1) * pageSize,
-    take: pageSize
+    skip: (page - 1) * pageSize,
+    take: pageSize,
   });
-  const issueCount = await prisma.issue.count({where})
+  const issueCount = await prisma.issue.count({ where });
 
   return (
-    <div>
+    <Flex direction='column' gap='3'>
       <IssuesAction />
-      <Table.Root variant="surface">
-        <Table.Header>
-          <Table.Row>
-            {columns.map((column) => (
-              <Table.ColumnHeaderCell key={column.value} className={column.className}>
-                <NextLink
-                  href={{ query: { ...resolvedParams, orderBy: column.value } }}
-                >
-                  {column.label}
-                </NextLink>
-                {column.value === orderedBy && (
-                  <ArrowUpIcon className="inline" />
-                )}
-              </Table.ColumnHeaderCell>
-            ))}
-          </Table.Row>
-        </Table.Header>
-        <Table.Body>
-          {issues.map((issue) => (
-            <Table.Row key={issue.id}>
-              <Table.Cell>
-                <Link href={`/issues/${issue.id}`}>{issue.title}</Link>
-                <div className="block sm:hidden">
-                  <IssuesStatusBadge status={issue.status} />
-                </div>
-              </Table.Cell>
-              <Table.Cell className="hidden sm:table-cell">
-                <IssuesStatusBadge status={issue.status} />
-              </Table.Cell>
-              <Table.Cell className="hidden sm:table-cell">
-                {issue.createdAt.toDateString()}
-              </Table.Cell>
-            </Table.Row>
-          ))}
-        </Table.Body>
-      </Table.Root>
+      <IssueTable searchParams={resolvedParams} issues={issues} />
       <Pagination
-      currentPage={page}
-      itemCount={issueCount}
-      pageSize={pageSize}
+        currentPage={page}
+        itemCount={issueCount}
+        pageSize={pageSize}
       />
-    </div>
+    </Flex >
   );
 };
 
