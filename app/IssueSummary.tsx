@@ -15,9 +15,9 @@ const IssueSummary = ({ Open, InProgress, Closed }: Props) => {
     value: number;
     status: Status;
   }[] = [
-    { label: "Open", value: Open, status: "OPEN" },
-    { label: "InProgress", value: InProgress, status: "IN_PROGRESS" },
-    { label: "Closed", value: Closed, status: "CLOSED" },
+    { label: "Open Issue", value: Open, status: "OPEN" },
+    { label: "InProgress Issue", value: InProgress, status: "IN_PROGRESS" },
+    { label: "Closed Issue", value: Closed, status: "CLOSED" },
   ];
   return (
     <Flex gap="4">
