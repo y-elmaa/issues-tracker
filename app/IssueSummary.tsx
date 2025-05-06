@@ -5,18 +5,18 @@ import { Card, Text } from "@radix-ui/themes";
 import Link from "next/link";
 interface Props {
   Open: number;
-  In_Progress: number;
+  InProgress: number;
   Closed: number;
 }
 
-const IssueSummary = ({ Open, In_Progress, Closed }: Props) => {
+const IssueSummary = ({ Open, InProgress, Closed }: Props) => {
   const contaners: {
     label: string;
     value: number;
     status: Status;
   }[] = [
     { label: "Open", value: Open, status: "OPEN" },
-    { label: "In_Progress", value: In_Progress, status: "IN_PROGRESS" },
+    { label: "InProgress", value: InProgress, status: "IN_PROGRESS" },
     { label: "Closed", value: Closed, status: "CLOSED" },
   ];
   return (
