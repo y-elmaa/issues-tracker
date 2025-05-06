@@ -1,10 +1,11 @@
 import Image from "next/image";
 import Link from "next/link";
 import Pagination from "./components/Pagination";
+import LatestIssue from "./LatestIssue";
 
-export default async function Home(props:{searchParams:Promise<{page:string}>}) {
-  const {page} = await props.searchParams
+export default async function Home() {
+  
   return (
-    <Pagination itemCount={100} currentPage={parseInt(page)} pageSize={10}/>
+    <LatestIssue/>
   );
 }

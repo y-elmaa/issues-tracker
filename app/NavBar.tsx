@@ -90,6 +90,6 @@ const AuthStatus = () => {
       </DropdownMenu.Root>
     </Box>
   );
-};
+}; 
 
 export default NavBar;
