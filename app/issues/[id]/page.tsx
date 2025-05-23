@@ -10,15 +10,17 @@ import AssignementSelect from "./AssignementSelect";
 import { cache } from "react";
 
 interface Props {
-  params: { id: string };
+  params: Promise<{ id: string }>;
 }
 
 const fetchUser = cache((issueId: number) =>
   prisma.issue.findUnique({ where: { id: issueId } })
 );
 const IssueDetailPage = async ({ params }: Props) => {
+  const { id } = await params;
+
   const session = await getServerSession(AuthOption);
-  const issue = await fetchUser(parseInt(params.id));
+  const issue = await fetchUser(parseInt(id));
   if (!issue) notFound();
 
   return (
@@ -40,7 +42,9 @@ const IssueDetailPage = async ({ params }: Props) => {
 };
 
 export async function generateMetadata({ params }: Props) {
-  const issue = await fetchUser(parseInt(params.id))
+  const { id } = await params;
+
+  const issue = await fetchUser(parseInt(id));
 
   return {
     title: issue?.title,

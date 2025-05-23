@@ -8,11 +8,12 @@ import EditIssueClient from "./EditIssueClient";
 
 
 interface Props {
-  params: { id: string };
+  params: Promise<{ id: string }>;
 }
 const EditIssuePage = async ({ params }: Props) => {
-  const issue = await prisma.issus.findUnique({
-    where: { id: parseInt(params.id) },
+  const {id}=await params
+  const issue = await prisma.issue.findUnique({
+    where: { id: parseInt(id) },
   });
   if (!issue) notFound();
   return <EditIssueClient issue={issue} />;

@@ -1,6 +1,6 @@
 "use client";
 import dynamic from "next/dynamic";
-import { Issus } from "@/app/generated/prisma";
+import { Issue } from "@/app/generated/prisma";
 import IssueFormLoding from "./loading";
 
 const IssueForm = dynamic(() => import("@/app/issues/_components/IssueForm"), {
@@ -8,7 +8,7 @@ const IssueForm = dynamic(() => import("@/app/issues/_components/IssueForm"), {
   loading: () => <IssueFormLoding />,
 });
 
-const EditIssueClient = ({ issue }: { issue: Issus }) => {
+const EditIssueClient = ({ issue }: { issue: Issue }) => {
   return <IssueForm issue={issue} />;
 };
 

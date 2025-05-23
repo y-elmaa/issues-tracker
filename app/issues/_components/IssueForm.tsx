@@ -2,7 +2,7 @@
 import { Button, Callout, TextField } from "@radix-ui/themes";
 
 import { ErrorMessage, Spinner } from "@/app/components";
-import { Issus } from "@/app/generated/prisma";
+import { Issue} from "@/app/generated/prisma";
 import { issueSchema } from "@/app/ValidationSchemas";
 import { zodResolver } from "@hookform/resolvers/zod";
 import axios from "axios";
@@ -16,7 +16,7 @@ import SimpleMDE from 'react-simplemde-editor';
 
 type IssueFormData = z.infer<typeof issueSchema>;
 
-const IssueForm = ({ issue }: { issue?: Issus }) => {
+const IssueForm = ({ issue }: { issue?: Issue }) => {
   const router = useRouter();
   const {
     register,

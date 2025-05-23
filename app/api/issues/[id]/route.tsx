@@ -8,8 +8,10 @@ import { NextRequest, NextResponse } from "next/server";
 
 export async function PATCH(
   request: NextRequest,
-  { params }: { params: { id: string } }
+  { params }: { params:Promise<{ id: string } > }
 ) {
+    const {id}=await params
+
   const session = await getServerSession(AuthOption);
   if (!session) return NextResponse.json({}, { status: 401 });
   const body = await request.json();
@@ -29,7 +31,7 @@ export async function PATCH(
     }
   }
   const issue = await prisma.issue.findUnique({
-    where: { id: parseInt(params.id) },
+    where: { id: parseInt(id) },
   });
   if (!issue)
     return NextResponse.json({ error: "issue not exist" }, { status: 404 });
@@ -44,12 +46,14 @@ export async function PATCH(
 
 export async function DELETE(
   request: NextRequest,
-  { params }: { params: { id: string } }
+  { params }: { params:Promise<{ id: string } > }
 ) {
+    const {id}=await params
+
   const session = await getServerSession(AuthOption);
   if (!session) return NextResponse.json({}, { status: 401 });
   const issue = await prisma.issue.findUnique({
-    where: { id: parseInt(params.id) },
+    where: { id: parseInt(id) },
   });
   if (!issue)
     return NextResponse.json({ error: "issue not exist" }, { status: 404 });
