@@ -5,9 +5,10 @@ import { Status } from "../generated/prisma";
 import IssuesAction from "./IssuesAction";
 import IssueTable, { columnIssue, IssueQuery } from "./IssueTable";
 import { Metadata } from "next";
+import { Suspense } from "react";
 
 interface Issuepageprops {
-  searchParams: Promise< IssueQuery >;
+  searchParams: Promise<IssueQuery>;
 }
 
 const IssuesPage = async (props: Issuepageprops) => {
@@ -34,19 +35,21 @@ const IssuesPage = async (props: Issuepageprops) => {
   const issueCount = await prisma.issue.count({ where });
 
   return (
-    <Flex direction='column' gap='3'>
+    <Flex direction="column" gap="3">
       <IssuesAction />
       <IssueTable searchParams={resolvedParams} issues={issues} />
-      <Pagination
-        currentPage={page}
-        itemCount={issueCount}
-        pageSize={pageSize}
-      />
-    </Flex >
+      <Suspense fallback={<div>Loading pagination...</div>}>
+        <Pagination
+          currentPage={page}
+          itemCount={issueCount}
+          pageSize={pageSize}
+        />
+      </Suspense>
+    </Flex>
   );
 };
-export const metadata:Metadata = {
-  title:'Issue Tracker - Issue List',
-  description:'View all project issues'
-}
+export const metadata: Metadata = {
+  title: "Issue Tracker - Issue List",
+  description: "View all project issues",
+};
 export default IssuesPage;
