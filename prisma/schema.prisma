@@ -14,9 +14,7 @@ datasource db {
   url      = env("DATABASE_URL")
   directUrl = env("DIRECT_URL")
 }
-generator client {
-  provider = "prisma-client-js"
-}
+
 model Issue {
   id              Int      @id @default(autoincrement())
   title           String   @db.VarChar(255)
